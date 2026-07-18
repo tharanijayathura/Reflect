@@ -1,31 +1,36 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { CartProvider } from '@/lib/cart-context';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Reflect Fashion | T-Shirts Store',
-  description: 'Modern frontend-only fashion store for T-shirts using Next.js.',
+  title: 'Reflect Fashion | Premium T-Shirts Sri Lanka',
+  description: 'Shop premium quality T-shirts for men, women, and unisex. Free delivery island-wide. Cash on delivery available.',
+  keywords: 'T-shirts, fashion, Sri Lanka, men, women, unisex, premium cotton',
+  openGraph: {
+    title: 'Reflect Fashion | Premium T-Shirts',
+    description: 'Premium quality T-shirts with cash on delivery. Shop men, women, and unisex collections.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-zinc-900`}>
-        <Navbar />
-        {children}
-        <Footer />
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">
+        <CartProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

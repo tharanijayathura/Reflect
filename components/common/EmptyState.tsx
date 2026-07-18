@@ -9,10 +9,22 @@ type EmptyStateProps = {
 
 export default function EmptyState({ title, description, buttonText, buttonHref }: EmptyStateProps) {
   return (
-    <div className="rounded-3xl border border-dashed border-zinc-300 bg-zinc-50 p-10 text-center">
-      <h3 className="text-2xl font-bold text-zinc-900">{title}</h3>
-      <p className="mx-auto mt-3 max-w-xl text-zinc-600">{description}</p>
-      {buttonText && buttonHref ? <Button href={buttonHref} className="mt-6">{buttonText}</Button> : null}
+    <div style={{
+      borderRadius: '24px',
+      border: '1.5px dashed var(--border-dark)',
+      background: 'var(--bg-soft)',
+      padding: '40px',
+      textAlign: 'center',
+    }}>
+      <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '12px' }}>
+        {title}
+      </h3>
+      <p style={{ maxWidth: '480px', margin: '0 auto 24px', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+        {description}
+      </p>
+      {buttonText && buttonHref ? (
+        <Button href={buttonHref}>{buttonText}</Button>
+      ) : null}
     </div>
   );
 }

@@ -1,17 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --soft: #f8fafc;
-  --brand: #111827;
-  --accent: #f59e0b;
+  /* === REFLECT FASHION — 5-COLOR PALETTE ===
+     1. White: #ffffff
+     2. Navy: #0f2533
+     3. Teal: #4a9eba
+     4. Light Teal: #eef6f9
+     5. Slate Blue: #516f80
+  */
+
+  /* Base mapping to 5 core colors */
+  --c-white: #ffffff;
+  --c-navy: #0f2533;
+  --c-teal: #4a9eba;
+  --c-light-teal: #eef6f9;
+  --c-slate: #516f80;
+
+  /* UI Tokens mapped strictly to the 5 colors above */
+  --bg: var(--c-white);
+  --bg-soft: var(--c-light-teal);
+  --bg-card: var(--c-white);
+  --bg-elevated: var(--c-light-teal);
+  --bg-teal: var(--c-light-teal);
+  --bg-teal-deep: var(--c-light-teal);
+  --bg-dark: var(--c-navy);
+
+  /* Borders mapping */
+  --border: var(--c-light-teal);
+  --border-dark: var(--c-slate);
+
+  /* Text mapping */
+  --text-primary: var(--c-navy);
+  --text-secondary: var(--c-slate);
+  --text-muted: var(--c-slate);
+  --text-on-dark: var(--c-white);
+  --text-on-teal: var(--c-navy);
+
+  /* Accents */
+  --accent: var(--c-teal);
+  --accent-mid: var(--c-teal);
+  --accent-dark: var(--c-navy);
+  --accent-light: var(--c-teal);
+  --accent-soft: rgba(74, 158, 186, 0.12); /* Opacity variant of #4a9eba */
+  --accent-glow: rgba(74, 158, 186, 0.25); /* Opacity variant of #4a9eba */
+  --accent-bg: var(--c-light-teal);
+
+  /* Navy CTA */
+  --navy: var(--c-navy);
+  --navy-hover: var(--c-navy);
+
+  /* Status Colors (Using opacity or mapping to accent when possible, but standard status highlights are allowed) */
+  --success: #22c55e;
+  --error: #ef4444;
+  --warning: var(--c-teal);
+
+  /* Shadows using opacity on the navy color */
+  --shadow-sm: 0 1px 4px rgba(15,37,51,0.06);
+  --shadow-card: 0 2px 16px rgba(15,37,51,0.08), 0 0 0 1px rgba(74,158,186,0.06);
+  --shadow-hover: 0 8px 32px rgba(74,158,186,0.18), 0 0 0 1px rgba(74,158,186,0.15);
+  --shadow-glow: 0 0 30px rgba(74, 158, 186, 0.2);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -19,10 +72,12 @@ html {
 }
 
 body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -35,7 +90,88 @@ img {
   max-width: 100%;
 }
 
-::selection {
-  background: #111827;
-  color: white;
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-soft); }
+::-webkit-scrollbar-thumb { background: var(--c-slate); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Selection */
+::selection { background: var(--accent); color: #fff; }
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.94); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+.animate-fadeInUp   { animation: fadeInUp 0.6s ease both; }
+.animate-fadeIn     { animation: fadeIn 0.4s ease both; }
+.animate-scaleIn    { animation: scaleIn 0.3s ease both; }
+
+/* ========== UTILITIES ========== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(74,158,186,0.15);
+}
+
+/* ========== CARD HOVER ========== */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(74, 158, 186, 0.3);
+}
+
+/* ========== INPUT FIELD ========== */
+.input-field {
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid var(--c-slate);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-field::placeholder { color: var(--text-muted); }
+.input-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }

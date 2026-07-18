@@ -5,12 +5,12 @@ import { products } from '@/lib/data';
 
 export default function WishlistPage() {
   return (
-    <main>
+    <main style={{ minHeight: '80vh' }}>
       <PageHero
         title="Wishlist"
         description="A placeholder frontend wishlist page. Later you can save real user favorites."
       />
-      <Container className="py-16">
+      <Container style={{ padding: '60px 24px' }}>
         <ProductGrid products={products.slice(0, 3)} />
       </Container>
     </main>

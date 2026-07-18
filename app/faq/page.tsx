@@ -18,13 +18,23 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main>
+    <main style={{ minHeight: '80vh' }}>
       <PageHero title="Frequently Asked Questions" description="Simple support content builds trust and makes the store feel complete." />
-      <Container className="space-y-5 py-16">
+      <Container style={{ padding: '60px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {faqs.map((item) => (
-          <div key={item.question} className="rounded-4xl border border-zinc-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-bold text-zinc-900">{item.question}</h2>
-            <p className="mt-3 text-zinc-600">{item.answer}</p>
+          <div key={item.question} style={{
+            borderRadius: '20px',
+            border: '1px solid var(--border)',
+            background: '#fff',
+            padding: '24px',
+            boxShadow: 'var(--shadow-sm)',
+          }}>
+            <h2 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              {item.question}
+            </h2>
+            <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+              {item.answer}
+            </p>
           </div>
         ))}
       </Container>
