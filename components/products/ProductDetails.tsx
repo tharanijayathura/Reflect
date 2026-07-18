@@ -216,7 +216,7 @@ export default function ProductDetails({ product }: { product: Product }) {
 
             {/* Size Selector */}
             <div style={{ marginBottom: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyBetween: 'space-between', marginBottom: '12px', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.1em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
                   Size {selectedSize && <span style={{ color: 'var(--accent)' }}>— {selectedSize}</span>}
                 </p>
@@ -307,7 +307,6 @@ export default function ProductDetails({ product }: { product: Product }) {
                   minWidth: '200px',
                   padding: '16px 28px',
                   borderRadius: '14px',
-                  border: 'none',
                   background: added
                     ? 'rgba(34,197,94,0.15)'
                     : 'var(--navy)',

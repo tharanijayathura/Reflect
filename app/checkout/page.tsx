@@ -428,17 +428,17 @@ export default function CheckoutPage() {
             )}
 
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyBetween: 'space-between', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Subtotal</span>
                 <span style={{ fontSize: '0.875rem', fontWeight: '600', color: 'var(--text-primary)' }}>Rs. {cartTotal.toLocaleString()}</span>
               </div>
-              <div style={{ display: 'flex', justifyBetween: 'space-between', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Shipping</span>
                 <span style={{ fontSize: '0.875rem', fontWeight: '600', color: shipping === 0 ? '#22c55e' : 'var(--text-primary)' }}>
                   {shipping === 0 ? 'Free 🎉' : `Rs. ${shipping}`}
                 </span>
               </div>
-              <div style={{ display: 'flex', justifyBetween: 'space-between', paddingTop: '12px', borderTop: '1px solid var(--border)', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', paddingTop: '12px', borderTop: '1px solid var(--border)', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)' }}>Total (COD)</span>
                 <span style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)' }}>Rs. {total.toLocaleString()}</span>
               </div>

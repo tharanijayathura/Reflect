@@ -158,7 +158,6 @@ export default function ProductCard({ product }: { product: Product }) {
               flex: 1,
               padding: '10px',
               borderRadius: '12px',
-              border: 'none',
               background: added
                 ? 'rgba(34,197,94,0.15)'
                 : 'var(--navy)',
