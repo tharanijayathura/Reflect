@@ -239,7 +239,7 @@ export default function Hero() {
             fill
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 25%',
+              objectPosition: '22% 25%',
             }}
             priority
           />
