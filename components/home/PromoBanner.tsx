@@ -131,7 +131,7 @@ export default function PromoBanner() {
           {/* Image side */}
           <div style={{ position: 'relative', minHeight: '360px' }}>
             <Image
-              src="/images/hero.png"
+              src="/images/gg.png"
               alt="Promotional banner — Reflect Fashion Sale"
               fill
               style={{ objectFit: 'cover' }}

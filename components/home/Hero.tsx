@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section style={{
       position: 'relative',
-      background: '#ffffff', // Pure White background to match image background
+      background: '#ffffff',
       minHeight: '620px',
       height: 'calc(100vh - 70px)',
       display: 'flex',
@@ -14,25 +14,53 @@ export default function Hero() {
       overflow: 'hidden',
     }} className="hero-section">
       
-      {/* Grid container spanning the full height and width */}
+      {/* Background Image Container */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 0.9fr',
+        position: 'absolute',
+        inset: 0,
         width: '100%',
         height: '100%',
-        alignItems: 'stretch',
-      }} className="hero-container">
-
-        {/* Left Column: Text content aligned to the default grid margin */}
+        zIndex: 1,
+      }}>
+        <Image
+          src="/images/bg.png"
+          alt="Reflect Fashion Collection"
+          fill
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center 35%',
+          }}
+          priority
+        />
+        {/* Editorial Blend Overlay */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '80px 24px 80px 8%',
+          position: 'absolute',
+          inset: 0,
           zIndex: 2,
+        }} className="hero-blend-overlay" />
+      </div>
+
+      {/* Content wrapper on top of background */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto',
+        width: '100%',
+        padding: '0 24px',
+        position: 'relative',
+        zIndex: 3,
+        display: 'flex',
+        alignItems: 'center',
+        height: '100%',
+      }} className="hero-content-wrapper">
+        
+        {/* Left Column: Text content card */}
+        <div style={{
+          maxWidth: '560px',
+          width: '100%',
+          padding: '40px 0',
           position: 'relative',
-          background: '#ffffff', // Explicit background matching the image
-        }} className="hero-left-col">
+        }} className="hero-text-container">
+          
           {/* Eyebrow */}
           <div style={{
             display: 'inline-flex',
@@ -106,7 +134,7 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
             }} className="hero-btn-primary">
               Shop Collection
-              <ArrowForwardIcon style={{ fontSize: '1rem' }} />
+              <ArrowForwardIcon style={{ fontSize: '1.1rem' }} />
             </Link>
             <Link href="/categories" style={{
               display: 'inline-flex',
@@ -147,54 +175,38 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Right Column: Full-bleed image occupying 100% height and width of column */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-        }} className="hero-right-col">
-          <Image
-            src="/images/hero.png"
-            alt="Reflect Fashion Spring/Summer Collection"
-            fill
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center top',
-            }}
-            priority
-          />
-          {/* Seamless blending mask overlay */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 1,
-            pointerEvents: 'none',
-          }} className="hero-blend-mask" />
         </div>
-
       </div>
 
       <style>{`
         .hero-btn-primary:hover { background: var(--accent) !important; transform: translateY(-2px); }
         .hero-btn-secondary:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
         
-        /* Smooth blending gradient on desktop (horizontal) */
+        /* Smooth blending gradient on desktop (horizontal editorial layout) */
         @media (min-width: 1025px) {
-          .hero-blend-mask {
-            background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 12%, rgba(255,255,255,0) 45%) !important;
+          .hero-blend-overlay {
+            background: linear-gradient(to right, #ffffff 28%, rgba(255, 255, 255, 0.9) 45%, rgba(255, 255, 255, 0) 75%) !important;
           }
         }
 
-        /* Smooth blending gradient on mobile/tablet (vertical) */
+        /* Responsive styling for tablet and mobile devices */
         @media (max-width: 1024px) {
-          .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
-          .hero-container { grid-template-columns: 1fr !important; }
-          .hero-left-col { padding: 40px 24px !important; }
-          .hero-right-col { height: 420px !important; }
-          .hero-blend-mask {
-            background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0.9) 15%, rgba(255,255,255,0) 50%) !important;
+          .hero-section { height: auto !important; min-height: 100vh !important; padding: 100px 0 60px !important; }
+          .hero-content-wrapper { justify-content: center !important; }
+          .hero-text-container {
+            max-width: 600px !important;
+            padding: 40px 24px !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-radius: 24px !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: 0 8px 32px rgba(15, 37, 51, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            z-index: 10 !important;
+          }
+          .hero-blend-overlay {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.8) 50%, #ffffff 100%) !important;
           }
         }
       `}</style>
