@@ -145,6 +145,21 @@ export default function Hero() {
           background: '#ffffff',
           overflow: 'hidden',
         }} className="hero-right-col">
+          {/* Decorative Back-light glow behind glass card */}
+          <div style={{
+            position: 'absolute',
+            top: '40px',
+            right: '40px',
+            width: '280px',
+            height: '280px',
+            borderRadius: '50%',
+            background: 'rgba(74, 158, 186, 0.28)',
+            filter: 'blur(60px)',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }} />
+
+          {/* Liquid Glass Card */}
           <div style={{
             position: 'absolute',
             top: '32px',
@@ -153,38 +168,73 @@ export default function Hero() {
             width: 'min(380px, 44%)',
             padding: '24px 28px',
             borderRadius: '28px',
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.4)',
-            boxShadow: '0 24px 60px rgba(15, 37, 51, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 2px 10px rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.18) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.45)',
+            boxShadow: '0 24px 60px rgba(15, 37, 51, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 2px rgba(255, 255, 255, 0.18), 0 2px 10px rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(28px)',
+            WebkitBackdropFilter: 'blur(28px)',
           }} className="hero-value-panel">
             <div style={{
               fontSize: '0.72rem',
               fontWeight: '800',
-              letterSpacing: '0.18em',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'var(--text-secondary)',
-              marginBottom: '14px',
+              color: 'var(--c-navy)',
+              opacity: 0.8,
+              marginBottom: '16px',
             }}>
               Reflect values
             </div>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '10px',
+              gap: '6px',
             }} className="acronym-list">
               {acronymItems.map((item, index) => (
-                <div key={`${item.letter}-${index}`} className="acronym-row">
-                  <span className="acronym-letter">{item.letter}</span>
-                  <span className="acronym-arrow">→</span>
-                  <span className="acronym-word">{item.word}</span>
+                <div key={`${item.letter}-${index}`} className="acronym-row" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '8px 12px',
+                  borderRadius: '14px',
+                  transition: 'all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                  borderBottom: index !== acronymItems.length - 1 ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
+                }}>
+                  <div style={{
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '50%',
+                    background: 'rgba(15, 37, 51, 0.05)',
+                    border: '1px solid rgba(255, 255, 255, 0.35)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '900',
+                    fontSize: '0.95rem',
+                    color: 'var(--c-navy)',
+                    marginRight: '12px',
+                    transition: 'all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1)',
+                  }} className="acronym-badge">
+                    {item.letter}
+                  </div>
+                  <span className="acronym-arrow" style={{
+                    marginRight: '8px',
+                    opacity: 0.35,
+                    fontSize: '0.85rem',
+                    color: 'var(--c-slate)',
+                    transition: 'all 0.25s ease',
+                  }}>→</span>
+                  <span className="acronym-word" style={{
+                    fontSize: '0.88rem',
+                    fontWeight: '600',
+                    color: 'var(--c-slate)',
+                    transition: 'all 0.25s ease',
+                  }}>{item.word}</span>
                 </div>
               ))}
             </div>
           </div>
           <Image
-            src="/images/image.png"
+            src="/images/noob.png"
             alt="Reflect Fashion Collection"
             fill
             style={{
@@ -210,48 +260,26 @@ export default function Hero() {
         
         /* Acronym list styled cleanly on left column */
         .acronym-row {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          min-height: 28px;
-          cursor: default;
-          transition: all 0.2s ease;
+          cursor: pointer;
         }
-        .acronym-letter {
-          font-size: 1.25rem;
-          font-weight: 900;
-          color: var(--c-navy);
-          width: 16px;
-          transition: all 0.2s ease;
+        .acronym-row:hover {
+          background: rgba(255, 255, 255, 0.25) !important;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px rgba(15, 37, 51, 0.04) !important;
         }
-        .acronym-arrow {
-          font-size: 0.95rem;
-          color: var(--c-slate);
-          opacity: 0.4;
-          transform: translateX(-4px);
-          transition: all 0.2s ease;
-        }
-        .acronym-word {
-          font-size: 0.95rem;
-          font-weight: 500;
-          color: var(--c-slate);
-          transition: all 0.2s ease;
-        }
-        
-        /* Interactive animations on hover */
-        .acronym-row:hover .acronym-letter {
-          color: var(--accent);
-          transform: scale(1.1);
+        .acronym-row:hover .acronym-badge {
+          background: var(--accent) !important;
+          color: #fff !important;
+          border-color: var(--accent) !important;
+          transform: scale(1.1) rotate(5deg) !important;
         }
         .acronym-row:hover .acronym-arrow {
-          opacity: 1;
-          color: var(--accent);
-          transform: translateX(0);
+          opacity: 1 !important;
+          color: var(--accent) !important;
+          transform: translateX(3px) !important;
         }
         .acronym-row:hover .acronym-word {
-          color: var(--c-navy);
-          font-weight: 700;
-          transform: translateX(2px);
+          color: var(--c-navy) !important;
+          transform: translateX(3px) !important;
         }
 
         /* Smooth blending gradient on desktop split screens */

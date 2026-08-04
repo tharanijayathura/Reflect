@@ -20,7 +20,7 @@ export default function CategoriesPreview() {
 
         {/* Category Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="cat-grid">
-          {categories.map((cat, i) => (
+          {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/categories#${cat.slug}`}

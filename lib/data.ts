@@ -45,19 +45,19 @@ export const categories: Category[] = [
     slug: 'men',
     title: "Men's T-Shirts",
     description: 'Structured fits, refined basics, and easy everyday layers for men.',
-    image: '/images/Tshirts/men/m1.png',
+    image: '/images/Tshirts/men/19.jpg',
   },
   {
     slug: 'women',
     title: "Women's T-Shirts",
     description: 'Soft silhouettes, versatile neutrals, and elevated casual styling for women.',
-    image: '/images/Tshirts/women/10.jpg',
+    image: '/images/Tshirts/women/14.jpg',
   },
   {
     slug: 'unisex',
     title: 'Unisex T-Shirts',
     description: 'Relaxed cuts and versatile essentials designed for everyone.',
-    image: '/images/Tshirts/unisex/2.jpg',
+    image: '/images/Tshirts/unisex/10.jpg',
   },
 ];
 
@@ -456,8 +456,8 @@ export const products: Product[] = [
   },
 ];
 
-export const featuredProducts = products.filter(p => p.badge === 'Best Seller' || p.badge === 'Editor Pick').slice(0, 4);
-export const trendingProducts = products.slice(0, 8);
+export const featuredProducts = products.slice(0, 4);
+export const trendingProducts = products.slice(4, 12);
 
 export const services = [
   { icon: 'shipping', title: 'Free Delivery', description: 'Free shipping on orders over Rs. 3,000 island-wide.' },
