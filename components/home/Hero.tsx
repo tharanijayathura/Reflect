@@ -234,12 +234,13 @@ export default function Hero() {
             </div>
           </div>
           <Image
-            src="/images/noob.png"
+            src="/images/Tshirts/women/16.jpg"
             alt="Reflect Fashion Collection"
             fill
             style={{
               objectFit: 'cover',
-              objectPosition: '22% 25%',
+              objectPosition: '50% 28%',
+              transform: 'scale(1.06)',
             }}
             priority
           />
