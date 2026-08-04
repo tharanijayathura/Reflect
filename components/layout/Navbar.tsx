@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/cart-context';
 import { navLinks } from '@/lib/data';
 import { usePathname } from 'next/navigation';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Navbar() {
   const { cartCount } = useCart();
@@ -81,7 +83,7 @@ export default function Navbar() {
               color: cartCount > 0 ? 'var(--accent)' : 'var(--text-secondary)',
               fontSize: '0.875rem', fontWeight: '600', textDecoration: 'none', transition: 'all 0.2s ease',
             }}>
-              <span style={{ fontSize: '1rem' }}>🛒</span>
+              <span style={{ fontSize: '1rem', display: 'flex', alignItems: 'center' }}><ShoppingCartOutlinedIcon style={{ fontSize: '1.2rem' }} /></span>
               {cartCount > 0 && (
                 <span style={{
                   minWidth: '20px', height: '20px',
@@ -163,7 +165,7 @@ export default function Navbar() {
             background: 'var(--navy)', color: '#fff',
             fontSize: '0.9rem', fontWeight: '700', textAlign: 'center', textDecoration: 'none',
           }}>
-            Shop All T-Shirts →
+            Shop All T-Shirts <ArrowForwardIcon style={{ fontSize: '0.9rem', verticalAlign: 'middle' }} />
           </Link>
         </div>
       </div>

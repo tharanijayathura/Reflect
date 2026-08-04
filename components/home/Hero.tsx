@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Hero() {
   return (
@@ -105,7 +106,7 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
             }} className="hero-btn-primary">
               Shop Collection
-              <span>→</span>
+              <ArrowForwardIcon style={{ fontSize: '1rem' }} />
             </Link>
             <Link href="/categories" style={{
               display: 'inline-flex',

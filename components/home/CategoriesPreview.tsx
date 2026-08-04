@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { categories } from '@/lib/data';
 
 export default function CategoriesPreview() {
@@ -91,7 +93,7 @@ export default function CategoriesPreview() {
                   backdropFilter: 'blur(10px)',
                   transition: 'background 0.2s',
                 }} className="cat-btn">
-                  Explore →
+                  Explore <ArrowForwardIcon style={{ fontSize: 'inherit', verticalAlign: 'middle' }} />
                 </div>
               </div>
             </Link>

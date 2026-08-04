@@ -3,7 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
-
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
 
@@ -14,7 +17,7 @@ export default function CartPage() {
     return (
       <main style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
         <div style={{ textAlign: 'center', maxWidth: '400px' }}>
-          <div style={{ fontSize: '4rem', marginBottom: '20px' }}>🛒</div>
+          <div style={{ fontSize: '4rem', marginBottom: '20px' }}><ShoppingCartOutlinedIcon style={{ fontSize: '4rem' }} /></div>
           <h1 style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '12px' }}>Your cart is empty</h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '32px', lineHeight: 1.7 }}>
             Browse our collection and find the perfect T-shirt for you.
@@ -35,7 +38,7 @@ export default function CartPage() {
               boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
             }}
           >
-            Shop T-Shirts →
+            Shop T-Shirts <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
           </Link>
         </div>
       </main>
@@ -168,7 +171,7 @@ export default function CartPage() {
                 transition: 'color 0.2s ease',
               }}
             >
-              ← Continue Shopping
+              <ArrowBackIcon style={{ fontSize: 'inherit' }} /> Continue Shopping
             </Link>
           </div>
 
@@ -208,7 +211,7 @@ export default function CartPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Shipping</span>
                 <span style={{ fontSize: '0.875rem', fontWeight: '600', color: shipping === 0 ? '#22c55e' : 'var(--text-primary)' }}>
-                  {shipping === 0 ? 'Free 🎉' : `Rs. ${shipping}`}
+                  {shipping === 0 ? 'Free' : `Rs. ${shipping}`}
                 </span>
               </div>
               {cartTotal < 3000 && (
@@ -234,7 +237,7 @@ export default function CartPage() {
               background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)',
               marginBottom: '16px',
             }}>
-              <span style={{ fontSize: '1rem' }}>💵</span>
+              <span style={{ fontSize: '1rem', display: 'flex' }}><PaymentsOutlinedIcon style={{ fontSize: 'inherit' }} /></span>
               <span style={{ fontSize: '0.78rem', fontWeight: '600', color: 'var(--accent)' }}>Cash on Delivery available</span>
             </div>
 
@@ -257,7 +260,7 @@ export default function CartPage() {
               }}
               className="cart-checkout-btn"
             >
-              Proceed to Checkout →
+              Proceed to Checkout <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
             </Link>
           </div>
         </div>

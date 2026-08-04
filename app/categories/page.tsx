@@ -1,8 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import ProductCard from '@/components/products/ProductCard';
 import { categories, products } from '@/lib/data';
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 export default function CategoriesPage() {
   return (
     <main style={{ minHeight: '100vh', paddingBottom: '80px' }}>
@@ -103,7 +105,7 @@ export default function CategoriesPage() {
                     }}
                     className="cat-shop-btn"
                   >
-                    Shop {category.slug.charAt(0).toUpperCase() + category.slug.slice(1)} →
+                    Shop {category.slug.charAt(0).toUpperCase() + category.slug.slice(1)} <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
                   </Link>
                 </div>
 

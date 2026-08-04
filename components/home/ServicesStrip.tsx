@@ -1,8 +1,14 @@
+'use client';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOutlined';
+import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
+
 const perks = [
-  { icon: '🚚', title: 'Free Delivery', description: 'Free island-wide shipping on orders over Rs. 3,000', color: '#4a9eba' },
-  { icon: '💵', title: 'Cash on Delivery', description: 'Pay when your order arrives. No card required.', color: '#2d6e87' },
-  { icon: '↩️', title: 'Easy Returns', description: '7-day no-hassle return policy on all items.', color: '#3e8da8' },
-  { icon: '✨', title: 'Premium Quality', description: 'Premium cotton fabrics that feel great and last.', color: '#0f2533' },
+  { icon: <LocalShippingOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Free Delivery', description: 'Free island-wide shipping on orders over Rs. 3,000', color: '#4a9eba' },
+  { icon: <PaymentsOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Cash on Delivery', description: 'Pay when your order arrives. No card required.', color: '#2d6e87' },
+  { icon: <AssignmentReturnOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Easy Returns', description: '7-day no-hassle return policy on all items.', color: '#3e8da8' },
+  { icon: <AutoAwesomeOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Premium Quality', description: 'Premium cotton fabrics that feel great and last.', color: '#0f2533' },
 ];
 
 export default function ServicesStrip() {

@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/lib/cart-context';
 import type { Product } from '@/lib/data';
+import StarIcon from '@mui/icons-material/Star';
+import CheckIcon from '@mui/icons-material/Check';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
@@ -92,7 +95,7 @@ export default function ProductCard({ product }: { product: Product }) {
           fontSize: '0.7rem', fontWeight: '700', color: 'var(--text-primary)',
           boxShadow: '0 2px 8px rgba(15,37,51,0.04)',
         }}>
-          ★ {product.rating} ({product.reviews})
+          <StarIcon style={{ fontSize: '0.85rem', verticalAlign: 'text-bottom' }} /> {product.rating} ({product.reviews})
         </div>
       </Link>
 
@@ -169,7 +172,7 @@ export default function ProductCard({ product }: { product: Product }) {
               border: added ? '1px solid rgba(34,197,94,0.3)' : 'none',
             } as React.CSSProperties}
           >
-            {adding ? '...' : added ? '✓ Added!' : selectedSize ? 'Add to Cart' : 'Select Size'}
+            {adding ? '...' : added ? <><CheckIcon style={{ fontSize: '1rem', verticalAlign: 'middle' }} /> Added!</> : selectedSize ? 'Add to Cart' : 'Select Size'}
           </button>
           <Link
             href={`/products/${product.slug}`}
@@ -189,7 +192,7 @@ export default function ProductCard({ product }: { product: Product }) {
             }}
             title="View product"
           >
-            →
+            <ArrowForwardIcon style={{ fontSize: '1rem' }} />
           </Link>
         </div>
       </div>

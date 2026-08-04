@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { featuredProducts } from '@/lib/data';
 
 export default function FeaturedGrid() {
@@ -34,7 +36,7 @@ export default function FeaturedGrid() {
             }}
             className="featured-view-all"
           >
-            View All →
+            View All <ArrowForwardIcon style={{ fontSize: 'inherit', verticalAlign: 'middle' }} />
           </Link>
         </div>
 

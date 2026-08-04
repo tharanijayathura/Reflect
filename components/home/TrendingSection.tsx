@@ -1,5 +1,9 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import StarIcon from '@mui/icons-material/Star';
 import { trendingProducts } from '@/lib/data';
 
 export default function TrendingSection() {
@@ -10,7 +14,7 @@ export default function TrendingSection() {
         <div style={{ display: 'flex', alignItems: 'flex-end', marginBottom: '40px', gap: '16px', flexWrap: 'wrap', justifyContent: 'space-between' }}>
           <div>
             <p style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.2em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: '10px' }}>
-              🔥 Hot Right Now
+              <WhatshotIcon style={{ fontSize: 'inherit', verticalAlign: 'text-bottom' }} /> Hot Right Now
             </p>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: '900', letterSpacing: '-0.03em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
               Trending T-Shirts
@@ -31,7 +35,7 @@ export default function TrendingSection() {
             }}
             className="trending-view-all"
           >
-            View All →
+            View All <ArrowForwardIcon style={{ fontSize: 'inherit', verticalAlign: 'middle' }} />
           </Link>
         </div>
 
@@ -76,7 +80,7 @@ export default function TrendingSection() {
                   fontSize: '0.7rem', fontWeight: '700', color: 'var(--text-primary)',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                 }}>
-                  ★ {product.rating}
+                  <StarIcon style={{ fontSize: 'inherit', verticalAlign: 'text-bottom' }} /> {product.rating}
                 </div>
               </Link>
 

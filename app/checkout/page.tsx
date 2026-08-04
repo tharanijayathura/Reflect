@@ -4,7 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
 import { useCart } from '@/lib/cart-context';
-
+import CheckIcon from '@mui/icons-material/Check';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 type FormState = {
   firstName: string;
   lastName: string;
@@ -92,7 +95,7 @@ export default function CheckoutPage() {
             background: 'rgba(34,197,94,0.12)', border: '2px solid rgba(34,197,94,0.3)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: '2.5rem', margin: '0 auto 24px',
-          }}>✓</div>
+          }}><CheckIcon style={{ fontSize: 'inherit' }} /></div>
           <h1 style={{ fontSize: '2rem', fontWeight: '900', color: '#22c55e', marginBottom: '12px' }}>
             Order Placed!
           </h1>
@@ -113,10 +116,10 @@ export default function CheckoutPage() {
             Order ID: {orderId}
           </div>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '8px' }}>
-            📦 Delivering to: {form.address}, {form.city}, {form.district}
+            <LocalShippingOutlinedIcon style={{ fontSize: 'inherit', verticalAlign: 'middle', marginRight: '4px' }} /> Delivering to: {form.address}, {form.city}, {form.district}
           </p>
           <p style={{ fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '32px' }}>
-            <span style={{ color: 'var(--accent)', fontWeight: '700' }}>💵 Cash on Delivery</span>
+            <span style={{ color: 'var(--accent)', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '4px' }}><PaymentsOutlinedIcon style={{ fontSize: 'inherit' }} /> Cash on Delivery</span>
             <span style={{ color: 'var(--text-secondary)' }}> — Pay Rs. {total.toLocaleString()} when your order arrives.</span>
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '28px' }}>
@@ -138,7 +141,7 @@ export default function CheckoutPage() {
               boxShadow: '0 4px 16px rgba(15,37,51,0.1)',
             }}
           >
-            Continue Shopping →
+            Continue Shopping <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
           </Link>
         </div>
       </main>
@@ -375,7 +378,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <p style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--accent)', marginBottom: '4px' }}>
-                      💵 Cash on Delivery
+                      <PaymentsOutlinedIcon style={{ fontSize: 'inherit', verticalAlign: 'middle', marginRight: '4px' }} /> Cash on Delivery
                     </p>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                       Pay when your order arrives. No card or online payment needed. Our delivery partner will collect payment at your door.
@@ -422,7 +425,7 @@ export default function CheckoutPage() {
               <div style={{ textAlign: 'center', padding: '20px 0', marginBottom: '20px' }}>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>No items in cart.</p>
                 <Link href="/products" style={{ color: 'var(--accent)', fontWeight: '600', textDecoration: 'none', fontSize: '0.875rem' }}>
-                  Browse Products →
+                  Browse Products <ArrowForwardIcon style={{ fontSize: 'inherit', verticalAlign: 'middle' }} />
                 </Link>
               </div>
             )}
@@ -435,7 +438,7 @@ export default function CheckoutPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Shipping</span>
                 <span style={{ fontSize: '0.875rem', fontWeight: '600', color: shipping === 0 ? '#22c55e' : 'var(--text-primary)' }}>
-                  {shipping === 0 ? 'Free 🎉' : `Rs. ${shipping}`}
+                  {shipping === 0 ? 'Free' : `Rs. ${shipping}`}
                 </span>
               </div>
               <div style={{ display: 'flex', paddingTop: '12px', borderTop: '1px solid var(--border)', justifyContent: 'space-between' }}>
@@ -463,7 +466,7 @@ export default function CheckoutPage() {
               }}
               className="checkout-place-btn"
             >
-              {placing ? 'Placing Order...' : items.length === 0 ? 'Add Items to Cart' : '📦 Place Order (Cash on Delivery)'}
+              {placing ? 'Placing Order...' : items.length === 0 ? 'Add Items to Cart' : <><LocalShippingOutlinedIcon style={{ fontSize: 'inherit', verticalAlign: 'middle', marginRight: '4px' }} /> Place Order (Cash on Delivery)</>}
             </button>
 
             <p style={{ marginTop: '12px', fontSize: '0.75rem', color: 'var(--text-secondary)', textAlign: 'center', lineHeight: 1.5 }}>

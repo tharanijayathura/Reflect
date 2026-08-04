@@ -1,5 +1,8 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 
 export default function PromoBanner() {
   return (
@@ -95,7 +98,7 @@ export default function PromoBanner() {
                 }}
                 className="promo-cta"
               >
-                Shop the Sale →
+                Shop the Sale <ArrowForwardIcon style={{ fontSize: 'inherit', verticalAlign: 'middle' }} />
               </Link>
               <Link
                 href="/categories"
@@ -120,7 +123,7 @@ export default function PromoBanner() {
 
             {/* COD note */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '28px' }}>
-              <span style={{ fontSize: '1rem' }}>💵</span>
+              <span style={{ fontSize: '1rem', display: 'flex', alignItems: 'center' }}><PaymentsOutlinedIcon style={{ fontSize: 'inherit' }} /></span>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>Cash on delivery — pay when it arrives</span>
             </div>
           </div>

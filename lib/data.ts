@@ -460,8 +460,8 @@ export const featuredProducts = products.filter(p => p.badge === 'Best Seller' |
 export const trendingProducts = products.slice(0, 8);
 
 export const services = [
-  { icon: '🚚', title: 'Free Delivery', description: 'Free shipping on orders over Rs. 3,000 island-wide.' },
-  { icon: '💵', title: 'Cash on Delivery', description: 'Pay when your order arrives. No card needed.' },
-  { icon: '↩️', title: 'Easy Returns', description: '7-day hassle-free return policy on all items.' },
-  { icon: '✨', title: 'Premium Quality', description: 'Every tee is crafted from premium cotton for lasting comfort.' },
+  { icon: 'shipping', title: 'Free Delivery', description: 'Free shipping on orders over Rs. 3,000 island-wide.' },
+  { icon: 'payments', title: 'Cash on Delivery', description: 'Pay when your order arrives. No card needed.' },
+  { icon: 'returns', title: 'Easy Returns', description: '7-day hassle-free return policy on all items.' },
+  { icon: 'quality', title: 'Premium Quality', description: 'Every tee is crafted from premium cotton for lasting comfort.' },
 ];

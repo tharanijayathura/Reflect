@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/lib/cart-context';
 import type { Product } from '@/lib/data';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import CheckIcon from '@mui/icons-material/Check';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 
 const COLOR_MAP: Record<string, string> = {
   Black: '#1a1a1a',
@@ -183,7 +189,9 @@ export default function ProductDetails({ product }: { product: Product }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
               <div style={{ display: 'flex', gap: '2px' }}>
                 {[1,2,3,4,5].map((star) => (
-                  <span key={star} style={{ color: star <= Math.round(product.rating) ? 'var(--accent)' : 'var(--border-dark)', fontSize: '1rem' }}>★</span>
+                  <span key={star} style={{ color: star <= Math.round(product.rating) ? 'var(--accent)' : 'var(--border-dark)', fontSize: '1.2rem', display: 'flex', alignItems: 'center' }}>
+                    {star <= Math.round(product.rating) ? <StarIcon fontSize="inherit" /> : <StarBorderIcon fontSize="inherit" />}
+                  </span>
                 ))}
               </div>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
@@ -319,7 +327,7 @@ export default function ProductDetails({ product }: { product: Product }) {
                   boxShadow: added ? 'none' : '0 4px 16px rgba(15,37,51,0.1)',
                 } as React.CSSProperties}
               >
-                {adding ? 'Adding...' : added ? '✓ Added to Cart!' : '🛒 Add to Cart'}
+                {adding ? 'Adding...' : added ? <><CheckIcon style={{ verticalAlign: 'middle', marginRight: '6px' }} /> Added to Cart!</> : <><ShoppingCartOutlinedIcon style={{ verticalAlign: 'middle', marginRight: '6px' }} /> Add to Cart</>}
               </button>
               <Link
                 href="/cart"
@@ -338,7 +346,7 @@ export default function ProductDetails({ product }: { product: Product }) {
                   whiteSpace: 'nowrap',
                 }}
               >
-                View Cart →
+                View Cart <ArrowForwardIcon style={{ fontSize: 'inherit', marginLeft: '4px', verticalAlign: 'middle' }} />
               </Link>
             </div>
 
@@ -353,7 +361,7 @@ export default function ProductDetails({ product }: { product: Product }) {
               border: '1px solid rgba(74, 158, 186, 0.2)',
               marginBottom: '28px',
             }}>
-              <span style={{ fontSize: '1.2rem' }}>💵</span>
+              <span style={{ fontSize: '1.5rem', color: 'var(--accent)', display: 'flex' }}><PaymentsOutlinedIcon fontSize="inherit" /></span>
               <div>
                 <p style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--accent)' }}>Cash on Delivery</p>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Pay when your order arrives. No card required.</p>

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import ProductCard from '@/components/products/ProductCard';
 import { products } from '@/lib/data';
-
+import SearchIcon from '@mui/icons-material/Search';
 type Category = 'all' | 'men' | 'women' | 'unisex';
 type SortOption = 'default' | 'price-asc' | 'price-desc' | 'rating';
 
@@ -72,7 +72,7 @@ export default function ProductsPage() {
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             {/* Search */}
             <div style={{ position: 'relative', flex: 1, minWidth: '220px', maxWidth: '360px' }}>
-              <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>🔍</span>
+              <span style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: '1.2rem', display: 'flex' }}><SearchIcon style={{ fontSize: 'inherit' }} /></span>
               <input
                 type="text"
                 placeholder="Search T-shirts..."
@@ -155,7 +155,7 @@ export default function ProductsPage() {
           </div>
         ) : (
           <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--text-secondary)' }}>
-            <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🔍</div>
+            <div style={{ fontSize: '3rem', marginBottom: '16px' }}><SearchIcon style={{ fontSize: 'inherit' }} /></div>
             <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '8px' }}>No T-shirts found</h3>
             <p style={{ fontSize: '0.9rem' }}>Try a different search or category</p>
           </div>

@@ -1,4 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const shopLinks = [
   { href: '/products', label: 'All T-Shirts' },
@@ -32,11 +39,11 @@ export default function Footer() {
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
           {[
-            { icon: '🚚', text: 'Free Delivery over Rs. 3,000' },
-            { icon: '💵', text: 'Cash on Delivery' },
-            { icon: '↩️', text: '7-Day Easy Returns' },
-            { icon: '⭐', text: 'Premium Quality' },
-          ].map(item => (
+            { icon: <LocalShippingOutlinedIcon style={{ fontSize: '1.1rem' }} />, text: 'Free Delivery over Rs. 3,000' },
+            { icon: <PaymentsOutlinedIcon style={{ fontSize: '1.1rem' }} />, text: 'Cash on Delivery' },
+            { icon: <AssignmentReturnOutlinedIcon style={{ fontSize: '1.1rem' }} />, text: '7-Day Easy Returns' },
+            { icon: <StarOutlinedIcon style={{ fontSize: '1.1rem' }} />, text: 'Premium Quality' },
+          ].map((item, idx) => (
             <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ fontSize: '1rem' }}>{item.icon}</span>
               <span style={{ fontSize: '0.8rem', fontWeight: '600', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}>{item.text}</span>
@@ -70,7 +77,7 @@ export default function Footer() {
               marginTop: '20px', padding: '10px 16px', borderRadius: '100px',
               background: 'rgba(74,158,186,0.15)', border: '1px solid rgba(74,158,186,0.3)',
             }}>
-              <span style={{ fontSize: '0.9rem' }}>💵</span>
+              <span style={{ fontSize: '0.9rem', display: 'flex', alignItems: 'center' }}><PaymentsOutlinedIcon style={{ fontSize: '1rem' }} /></span>
               <span style={{ fontSize: '0.72rem', fontWeight: '700', color: '#7bc2d6', letterSpacing: '0.08em' }}>CASH ON DELIVERY AVAILABLE</span>
             </div>
           </div>
@@ -98,7 +105,7 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '18px 24px' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
           <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)' }}>© {new Date().getFullYear()} Reflect Fashion. All rights reserved.</p>
-          <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)' }}>🇱🇰 Proudly Sri Lankan · Made with ❤️</p>
+          <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '4px' }}>Proudly Sri Lankan · Made with <FavoriteIcon style={{ fontSize: '0.85rem', color: '#e74c3c' }} /></p>
         </div>
       </div>
 
