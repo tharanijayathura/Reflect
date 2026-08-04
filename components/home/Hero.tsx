@@ -38,7 +38,7 @@ export default function Hero() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '60px 40px 60px 10%',
+          padding: '20px 40px 20px 10%',
           zIndex: 2,
           position: 'relative',
           background: '#ffffff',
@@ -76,7 +76,7 @@ export default function Hero() {
             letterSpacing: '-0.04em',
             color: 'var(--text-primary)',
             marginBottom: '28px',
-          }}>
+          }} className="hero-headline">
             <span style={{
               background: 'linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%)',
               WebkitBackgroundClip: 'text',
@@ -89,11 +89,12 @@ export default function Hero() {
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
-            marginBottom: '36px',
+            gap: '8px',
+            marginTop: '-15px',
+            marginBottom: '24px',
           }} className="acronym-list">
-            {acronymItems.map((item) => (
-              <div key={item.letter} className="acronym-row">
+            {acronymItems.map((item, index) => (
+              <div key={`${item.letter}-${index}`} className="acronym-row">
                 <span className="acronym-letter">{item.letter}</span>
                 <span className="acronym-arrow">→</span>
                 <span className="acronym-word">{item.word}</span>
@@ -219,6 +220,12 @@ export default function Hero() {
 
         /* Smooth blending gradient on desktop split screens */
         @media (min-width: 1025px) {
+          .hero-headline {
+            margin-left: auto !important;
+            margin-right: -40px !important;
+            margin-top: 60px !important;
+            width: fit-content !important;
+          }
           .hero-blend-mask {
             background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.95) 8%, rgba(255, 255, 255, 0) 35%) !important;
           }
