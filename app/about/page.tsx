@@ -65,26 +65,34 @@ export default function AboutPage() {
               </p>
             </div>
             
-            {/* Core Values Strip */}
+            {/* Core Values & Brand Stats Strip */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(5, 1fr)',
               gap: '20px',
               borderTop: '1px solid var(--border)',
               paddingTop: '28px',
               marginTop: '12px',
             }} className="about-values">
               <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>100%</h4>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: '600' }}>Organic Cotton</p>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)', marginBottom: '4px' }}>20+</h4>
+                <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: '700', lineHeight: '1.3' }}>T-Shirt Styles</p>
               </div>
               <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>Islandwide</h4>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: '600' }}>Cash on Delivery</p>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)', marginBottom: '4px' }}>500+</h4>
+                <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: '700', lineHeight: '1.3' }}>Happy Customers</p>
               </div>
               <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>Easy</h4>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: '600' }}>7-Day Returns</p>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)', marginBottom: '4px' }}>COD</h4>
+                <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: '700', lineHeight: '1.3' }}>Cash on Delivery</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)', marginBottom: '4px' }}>Free</h4>
+                <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: '700', lineHeight: '1.3' }}>Delivery over 3,000</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: '900', color: 'var(--accent)', marginBottom: '4px' }}>Easy</h4>
+                <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: '700', lineHeight: '1.3' }}>7-Day Returns</p>
               </div>
             </div>
           </div>
@@ -117,6 +125,11 @@ export default function AboutPage() {
       </Container>
       
       <style>{`
+        @media (max-width: 1024px) {
+          .about-values {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
         @media (max-width: 968px) {
           .about-grid {
             grid-template-columns: 1fr !important;
@@ -127,10 +140,10 @@ export default function AboutPage() {
             margin: 0 auto !important;
           }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
           .about-values {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
           }
         }
       `}</style>
