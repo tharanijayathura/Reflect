@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <ServicesStrip />
       <CategoriesPreview />
+      <ServicesStrip />
       <FeaturedGrid />
       <TrendingSection />
       <PromoBanner />
