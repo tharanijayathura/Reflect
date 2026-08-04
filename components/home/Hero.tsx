@@ -38,10 +38,12 @@ export default function Hero() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '20px 40px 20px 10%',
+          padding: '48px 40px 48px 10%',
           zIndex: 2,
           position: 'relative',
           background: '#ffffff',
+          maxWidth: '640px',
+          gap: '16px',
         }} className="hero-left-col">
           
           {/* Eyebrow */}
@@ -70,12 +72,13 @@ export default function Hero() {
 
           {/* Large Headline */}
           <h1 style={{
-            fontSize: 'clamp(3rem, 6vw, 4.8rem)',
+            fontSize: 'clamp(4rem, 7vw, 6.8rem)',
             fontWeight: '950',
             lineHeight: '1.05',
             letterSpacing: '-0.04em',
             color: 'var(--text-primary)',
-            marginBottom: '28px',
+            marginTop: '12px',
+            marginBottom: '2px',
           }} className="hero-headline">
             <span style={{
               background: 'linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%)',
@@ -85,25 +88,18 @@ export default function Hero() {
             }}>REFLECT</span>
           </h1>
 
-          {/* Clean, Compact Acronym List contained entirely in the left column */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px',
-            marginTop: '-15px',
-            marginBottom: '24px',
-          }} className="acronym-list">
-            {acronymItems.map((item, index) => (
-              <div key={`${item.letter}-${index}`} className="acronym-row">
-                <span className="acronym-letter">{item.letter}</span>
-                <span className="acronym-arrow">→</span>
-                <span className="acronym-word">{item.word}</span>
-              </div>
-            ))}
-          </div>
+          <p style={{
+            maxWidth: '520px',
+            fontSize: '1rem',
+            lineHeight: '1.75',
+            color: 'var(--text-secondary)',
+            marginBottom: '6px',
+          }}>
+            Clean silhouettes, soft textures, and everyday fits made to feel effortless from the first wear.
+          </p>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '8px' }}>
             <Link href="/products" style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -147,7 +143,46 @@ export default function Hero() {
           width: '100%',
           height: '100%',
           background: '#ffffff',
+          overflow: 'hidden',
         }} className="hero-right-col">
+          <div style={{
+            position: 'absolute',
+            top: '32px',
+            right: '32px',
+            zIndex: 3,
+            width: 'min(380px, 44%)',
+            padding: '24px 28px',
+            borderRadius: '28px',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 24px 60px rgba(15, 37, 51, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 2px rgba(255, 255, 255, 0.15), 0 2px 10px rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+          }} className="hero-value-panel">
+            <div style={{
+              fontSize: '0.72rem',
+              fontWeight: '800',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--text-secondary)',
+              marginBottom: '14px',
+            }}>
+              Reflect values
+            </div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px',
+            }} className="acronym-list">
+              {acronymItems.map((item, index) => (
+                <div key={`${item.letter}-${index}`} className="acronym-row">
+                  <span className="acronym-letter">{item.letter}</span>
+                  <span className="acronym-arrow">→</span>
+                  <span className="acronym-word">{item.word}</span>
+                </div>
+              ))}
+            </div>
+          </div>
           <Image
             src="/images/image.png"
             alt="Reflect Fashion Collection"
@@ -178,6 +213,7 @@ export default function Hero() {
           display: flex;
           align-items: center;
           gap: 12px;
+          min-height: 28px;
           cursor: default;
           transition: all 0.2s ease;
         }
@@ -221,9 +257,6 @@ export default function Hero() {
         /* Smooth blending gradient on desktop split screens */
         @media (min-width: 1025px) {
           .hero-headline {
-            margin-left: auto !important;
-            margin-right: -40px !important;
-            margin-top: 60px !important;
             width: fit-content !important;
           }
           .hero-blend-mask {
@@ -235,11 +268,30 @@ export default function Hero() {
         @media (max-width: 1024px) {
           .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
           .hero-container { grid-template-columns: 1fr !important; }
-          .hero-left-col { padding: 40px 24px !important; }
+          .hero-left-col { padding: 40px 24px !important; max-width: none !important; }
           .hero-right-col { height: 420px !important; }
+          .hero-value-panel { 
+            width: calc(100% - 32px) !important; 
+            max-width: 360px !important; 
+            top: 16px !important;
+            right: 16px !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+          }
           .hero-blend-mask {
             background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 35%) !important;
           }
+        }
+
+        /* Liquid Glass Sheen Hover Effect */
+        .hero-value-panel {
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        }
+        .hero-value-panel:hover {
+          transform: translateY(-6px) scale(1.015) !important;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 100%) !important;
+          border-color: rgba(255, 255, 255, 0.6) !important;
+          box-shadow: 0 35px 70px rgba(15, 37, 51, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -1px 2px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(255, 255, 255, 0.35) !important;
         }
       `}</style>
     </section>
