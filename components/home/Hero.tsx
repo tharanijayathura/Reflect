@@ -182,7 +182,7 @@ export default function Hero() {
               color: 'var(--c-navy)',
               opacity: 0.8,
               marginBottom: '16px',
-            }}>
+            }} className="hero-panel-title">
               Reflect values
             </div>
             <div style={{
@@ -298,15 +298,46 @@ export default function Hero() {
           .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
           .hero-container { grid-template-columns: 1fr !important; }
           .hero-left-col { padding: 40px 24px !important; max-width: none !important; }
-          .hero-right-col { height: 420px !important; }
+          .hero-right-col { height: 440px !important; }
+          
+          /* Compact Liquid Glass Panel for Mobile */
           .hero-value-panel { 
-            width: calc(100% - 32px) !important; 
-            max-width: 360px !important; 
-            top: 16px !important;
-            right: 16px !important;
+            width: calc(100% - 24px) !important; 
+            max-width: 320px !important; 
+            top: 12px !important;
+            right: 12px !important;
+            padding: 12px 14px !important;
+            border-radius: 20px !important;
             backdrop-filter: blur(16px) !important;
             -webkit-backdrop-filter: blur(16px) !important;
           }
+          .hero-value-panel .hero-panel-title {
+            margin-bottom: 8px !important;
+            font-size: 0.65rem !important;
+            letter-spacing: 0.14em !important;
+          }
+          .hero-value-panel .acronym-list {
+            gap: 3px !important;
+          }
+          .hero-value-panel .acronym-row {
+            padding: 4px 6px !important;
+            border-radius: 8px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+          }
+          .hero-value-panel .acronym-badge {
+            width: 22px !important;
+            height: 22px !important;
+            font-size: 0.75rem !important;
+            margin-right: 6px !important;
+          }
+          .hero-value-panel .acronym-arrow {
+            font-size: 0.7rem !important;
+            margin-right: 4px !important;
+          }
+          .hero-value-panel .acronym-word {
+            font-size: 0.78rem !important;
+          }
+          
           .hero-blend-mask {
             background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 35%) !important;
           }
