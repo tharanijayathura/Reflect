@@ -17,33 +17,56 @@ export default function Hero() {
     <section style={{
       position: 'relative',
       background: '#ffffff',
-      minHeight: '640px',
+      minHeight: '660px',
       height: 'calc(100vh - 70px)',
       display: 'flex',
       alignItems: 'center',
       overflow: 'hidden',
     }} className="hero-section">
       
-      {/* Grid container splitting text and image columns */}
+      {/* Background Image Container */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.05fr 1.15fr',
+        position: 'absolute',
+        inset: 0,
         width: '100%',
         height: '100%',
-        alignItems: 'stretch',
-      }} className="hero-container">
-
-        {/* Left Column: Text content & Interactive Acronym Art */}
+        zIndex: 1,
+      }}>
+        <Image
+          src="/images/image.png"
+          alt="Reflect Fashion Collection"
+          fill
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center 25%',
+          }}
+          priority
+        />
+        {/* Soft wash overlay to blend the background models slightly for contrast */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '40px 40px 40px 10%',
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.4) 100%)',
           zIndex: 2,
-          position: 'relative',
-          background: '#ffffff',
-        }} className="hero-left-col">
-          
+        }} />
+      </div>
+
+      {/* Main Content Wrapper (Grid or Flex Overlay) */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto',
+        width: '100%',
+        padding: '0 24px',
+        position: 'relative',
+        zIndex: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: '100%',
+      }} className="hero-content-wrapper">
+        
+        {/* Top Info: Eyebrow and Headline */}
+        <div style={{ maxWidth: '500px', marginBottom: '24px' }}>
           {/* Eyebrow */}
           <div style={{
             display: 'inline-flex',
@@ -53,7 +76,7 @@ export default function Hero() {
             borderRadius: '100px',
             background: 'var(--accent-soft)',
             border: '1px solid rgba(74, 158, 186, 0.25)',
-            marginBottom: '20px',
+            marginBottom: '16px',
             width: 'fit-content',
           }}>
             <span style={{
@@ -68,14 +91,14 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Big Header Title */}
+          {/* Headline REFLECT */}
           <h1 style={{
             fontSize: 'clamp(2.8rem, 5.5vw, 4.8rem)',
             fontWeight: '950',
             lineHeight: '1.05',
             letterSpacing: '-0.04em',
             color: 'var(--text-primary)',
-            marginBottom: '28px',
+            margin: 0,
           }}>
             <span style={{
               background: 'linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%)',
@@ -84,86 +107,63 @@ export default function Hero() {
               backgroundClip: 'text',
             }}>REFLECT</span>
           </h1>
-
-          {/* Unique Acronym Art List */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px',
-            marginBottom: '40px',
-          }} className="acronym-list">
-            {acronymItems.map((item) => (
-              <div key={item.letter} className="acronym-item">
-                <span className="acronym-letter">{item.letter}</span>
-                <span className="acronym-arrow">→</span>
-                <span className="acronym-word">{item.word}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTAs */}
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-            <Link href="/products" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              borderRadius: '100px',
-              background: 'var(--navy)',
-              color: '#fff',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              transition: 'all 0.25s ease',
-              boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
-            }} className="hero-btn-primary">
-              Shop Collection
-              <ArrowForwardIcon style={{ fontSize: '1.1rem' }} />
-            </Link>
-            <Link href="/categories" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              borderRadius: '100px',
-              background: '#fff',
-              border: '1.5px solid var(--border-dark)',
-              color: 'var(--text-primary)',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              transition: 'all 0.25s ease',
-            }} className="hero-btn-secondary">
-              Browse Categories
-            </Link>
-          </div>
-
         </div>
 
-        {/* Right Column: High-resolution image.png cleanly separated */}
+        {/* Unique Acronym Art List with Long Connecting Arrows */}
         <div style={{
-          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px',
           width: '100%',
-          height: '100%',
-          background: '#ffffff',
-        }} className="hero-right-col">
-          <Image
-            src="/images/image.png"
-            alt="Reflect Fashion Collection"
-            fill
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center 20%',
-            }}
-            priority
-          />
-          {/* Blend mask overlay to transition white background to image */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 1,
-            pointerEvents: 'none',
-          }} className="hero-blend-mask" />
+          marginBottom: '36px',
+        }} className="acronym-list">
+          {acronymItems.map((item) => (
+            <div key={item.letter} className="acronym-row">
+              <span className="acronym-letter">{item.letter}</span>
+              <div className="acronym-line-container">
+                <div className="acronym-line" />
+                <span className="acronym-arrow-head">▶</span>
+              </div>
+              <span className="acronym-word">{item.word}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* CTAs aligned to the left under the acronym letters */}
+        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+          <Link href="/products" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '14px 28px',
+            borderRadius: '100px',
+            background: 'var(--navy)',
+            color: '#fff',
+            fontSize: '0.95rem',
+            fontWeight: '700',
+            textDecoration: 'none',
+            transition: 'all 0.25s ease',
+            boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
+          }} className="hero-btn-primary">
+            Shop Collection
+            <ArrowForwardIcon style={{ fontSize: '1.1rem' }} />
+          </Link>
+          <Link href="/categories" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '14px 28px',
+            borderRadius: '100px',
+            background: '#fff',
+            border: '1.5px solid var(--border-dark)',
+            color: 'var(--text-primary)',
+            fontSize: '0.95rem',
+            fontWeight: '700',
+            textDecoration: 'none',
+            transition: 'all 0.25s ease',
+          }} className="hero-btn-secondary">
+            Browse Categories
+          </Link>
         </div>
 
       </div>
@@ -172,71 +172,94 @@ export default function Hero() {
         .hero-btn-primary:hover { background: var(--accent) !important; transform: translateY(-2px); }
         .hero-btn-secondary:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
         
-        /* Acronym Art Transitions */
-        .acronym-item {
+        /* Acronym Long Arrow Transitions */
+        .acronym-row {
           display: flex;
           align-items: center;
-          font-family: var(--font-inter), system-ui, sans-serif;
-          cursor: default;
-          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          width: 100%;
+          transition: all 0.25s ease;
         }
         .acronym-letter {
-          font-size: 1.8rem;
-          font-weight: 900;
+          font-size: 2.2rem;
+          font-weight: 950;
           color: var(--c-navy);
-          width: 24px;
-          display: inline-block;
+          width: 32px;
+          flex-shrink: 0;
           transition: all 0.25s ease;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
-        .acronym-arrow {
-          font-size: 1.1rem;
-          color: var(--c-slate);
-          opacity: 0;
-          transform: translateX(-8px);
-          transition: all 0.25s ease;
-          margin: 0 8px;
+        .acronym-line-container {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          position: relative;
+          margin: 0 24px;
+        }
+        .acronym-line {
+          width: 100%;
+          height: 1px;
+          background: rgba(81, 111, 128, 0.25);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .acronym-arrow-head {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%) scale(0.6);
+          color: rgba(81, 111, 128, 0.4);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          line-height: 1;
         }
         .acronym-word {
-          font-size: 1.05rem;
+          font-size: 1.15rem;
           font-weight: 500;
           color: var(--c-slate);
-          transform: translateX(-12px);
-          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          flex-shrink: 0;
+          text-align: right;
+          min-width: 180px;
+          transition: all 0.25s ease;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
         
-        /* Hover Effect for each letter */
-        .acronym-item:hover {
-          padding-left: 8px;
-        }
-        .acronym-item:hover .acronym-letter {
+        /* Hover Effects */
+        .acronym-row:hover .acronym-letter {
           color: var(--accent);
-          transform: scale(1.1);
+          transform: scale(1.15);
         }
-        .acronym-item:hover .acronym-arrow {
-          opacity: 1;
-          transform: translateX(0);
+        .acronym-row:hover .acronym-line {
+          background: var(--accent);
+          height: 1.5px;
         }
-        .acronym-item:hover .acronym-word {
+        .acronym-row:hover .acronym-arrow-head {
+          color: var(--accent);
+          transform: translateY(-50%) scale(0.8) translateX(6px);
+        }
+        .acronym-row:hover .acronym-word {
           color: var(--c-navy);
-          font-weight: 700;
-          transform: translateX(0);
+          font-weight: 800;
+          transform: translateX(4px);
         }
 
-        /* Smooth horizontal fade blending for desktop split screens */
-        @media (min-width: 1025px) {
-          .hero-blend-mask {
-            background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.95) 8%, rgba(255, 255, 255, 0) 35%) !important;
-          }
-        }
-
-        /* Stacks columns vertically on smaller screens and mobile */
+        /* Responsive styling for smaller viewports */
         @media (max-width: 1024px) {
-          .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
-          .hero-container { grid-template-columns: 1fr !important; }
-          .hero-left-col { padding: 40px 24px !important; }
-          .hero-right-col { height: 440px !important; }
-          .hero-blend-mask {
-            background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 35%) !important;
+          .hero-section { height: auto !important; min-height: 100vh !important; padding: 100px 0 60px !important; }
+          .hero-content-wrapper { padding: 0 24px !important; }
+          .acronym-line-container { margin: 0 12px !important; }
+          .acronym-word { font-size: 1rem !important; min-width: 140px !important; }
+          .acronym-letter { font-size: 1.8rem !important; }
+        }
+
+        @media (max-width: 640px) {
+          .acronym-line-container {
+            display: none !important; /* Hide long lines on very small mobile screens for clean fit */
+          }
+          .acronym-row {
+            justify-content: space-between !important;
+            border-bottom: 1px solid rgba(81, 111, 128, 0.08);
+            padding: 8px 0;
+          }
+          .acronym-word {
+            text-align: right !important;
           }
         }
       `}</style>
