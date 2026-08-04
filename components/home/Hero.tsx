@@ -14,52 +14,25 @@ export default function Hero() {
       overflow: 'hidden',
     }} className="hero-section">
       
-      {/* Background Image Container */}
+      {/* Grid container splitting text and image columns */}
       <div style={{
-        position: 'absolute',
-        inset: 0,
+        display: 'grid',
+        gridTemplateColumns: '1fr 1.2fr',
         width: '100%',
         height: '100%',
-        zIndex: 1,
-      }}>
-        <Image
-          src="/images/bg.png"
-          alt="Reflect Fashion Collection"
-          fill
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center 35%',
-          }}
-          priority
-        />
-        {/* Editorial Blend Overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 2,
-        }} className="hero-blend-overlay" />
-      </div>
+        alignItems: 'stretch',
+      }} className="hero-container">
 
-      {/* Content wrapper on top of background */}
-      <div style={{
-        maxWidth: '1400px',
-        margin: '0 auto',
-        width: '100%',
-        padding: '0 24px',
-        position: 'relative',
-        zIndex: 3,
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%',
-      }} className="hero-content-wrapper">
-        
-        {/* Left Column: Text content card */}
+        {/* Left Column: Text content on a solid white background for maximum legibility */}
         <div style={{
-          maxWidth: '560px',
-          width: '100%',
-          padding: '40px 0',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: '80px 40px 80px 10%',
+          zIndex: 2,
           position: 'relative',
-        }} className="hero-text-container">
+          background: '#ffffff',
+        }} className="hero-left-col">
           
           {/* Eyebrow */}
           <div style={{
@@ -87,7 +60,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 style={{
-            fontSize: 'clamp(2.4rem, 4.8vw, 4rem)',
+            fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
             fontWeight: '900',
             lineHeight: '1.15',
             letterSpacing: '-0.03em',
@@ -177,36 +150,54 @@ export default function Hero() {
           </div>
 
         </div>
+
+        {/* Right Column: Displays the horizontal bg.png cleanly with blending */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          background: '#ffffff',
+        }} className="hero-right-col">
+          <Image
+            src="/images/bg.png"
+            alt="Reflect Fashion Collection"
+            fill
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center 35%',
+            }}
+            priority
+          />
+          {/* Blend mask overlay to transition white background to image */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 1,
+            pointerEvents: 'none',
+          }} className="hero-blend-mask" />
+        </div>
+
       </div>
 
       <style>{`
         .hero-btn-primary:hover { background: var(--accent) !important; transform: translateY(-2px); }
         .hero-btn-secondary:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
         
-        /* Smooth blending gradient on desktop (horizontal editorial layout) */
+        /* Smooth horizontal fade blending for desktop split screens */
         @media (min-width: 1025px) {
-          .hero-blend-overlay {
-            background: linear-gradient(to right, #ffffff 28%, rgba(255, 255, 255, 0.9) 45%, rgba(255, 255, 255, 0) 75%) !important;
+          .hero-blend-mask {
+            background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.95) 8%, rgba(255, 255, 255, 0) 35%) !important;
           }
         }
 
-        /* Responsive styling for tablet and mobile devices */
+        /* Stacks columns vertically on smaller screens and mobile */
         @media (max-width: 1024px) {
-          .hero-section { height: auto !important; min-height: 100vh !important; padding: 100px 0 60px !important; }
-          .hero-content-wrapper { justify-content: center !important; }
-          .hero-text-container {
-            max-width: 600px !important;
-            padding: 40px 24px !important;
-            background: rgba(255, 255, 255, 0.9) !important;
-            border-radius: 24px !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            box-shadow: 0 8px 32px rgba(15, 37, 51, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            z-index: 10 !important;
-          }
-          .hero-blend-overlay {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.8) 50%, #ffffff 100%) !important;
+          .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
+          .hero-container { grid-template-columns: 1fr !important; }
+          .hero-left-col { padding: 40px 24px !important; }
+          .hero-right-col { height: 420px !important; }
+          .hero-blend-mask {
+            background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 35%) !important;
           }
         }
       `}</style>
