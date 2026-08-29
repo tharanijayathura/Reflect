@@ -134,7 +134,7 @@ export default function TrendingSection() {
       <style>{`
         .trending-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(74, 158, 186, 0.3);
+          border-color: rgba(108, 99, 255, 0.3);
           box-shadow: var(--shadow-hover);
         }
         .trending-card:hover .trending-img { transform: scale(1.05); }

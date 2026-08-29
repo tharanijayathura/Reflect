@@ -35,7 +35,7 @@ export default function PromoBanner() {
               width: '300px',
               height: '300px',
               borderRadius: '50%',
-              background: 'rgba(74, 158, 186, 0.15)',
+              background: 'rgba(108, 99, 255, 0.15)',
               filter: 'blur(60px)',
               pointerEvents: 'none',
             }} />
@@ -45,7 +45,7 @@ export default function PromoBanner() {
               padding: '5px 14px',
               borderRadius: '100px',
               background: 'var(--accent-soft)',
-              border: '1px solid rgba(74, 158, 186, 0.25)',
+              border: '1px solid rgba(108, 99, 255, 0.25)',
               fontSize: '0.7rem',
               fontWeight: '700',
               letterSpacing: '0.15em',
@@ -93,7 +93,7 @@ export default function PromoBanner() {
                   fontSize: '0.9rem',
                   fontWeight: '700',
                   textDecoration: 'none',
-                  boxShadow: '0 4px 20px rgba(15, 37, 51, 0.15)',
+                  boxShadow: '0 4px 20px rgba(26, 26, 46, 0.15)',
                   transition: 'all 0.2s',
                 }}
                 className="promo-cta"
@@ -154,7 +154,7 @@ export default function PromoBanner() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 8px 32px rgba(74, 158, 186, 0.3)',
+              boxShadow: '0 8px 32px rgba(108, 99, 255, 0.3)',
               animation: 'float 3s ease-in-out infinite',
             }}>
               <span style={{ fontSize: '1.25rem', fontWeight: '900', color: '#fff', lineHeight: 1 }}>30%</span>

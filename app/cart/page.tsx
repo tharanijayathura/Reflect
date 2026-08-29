@@ -35,7 +35,7 @@ export default function CartPage() {
               fontWeight: '700',
               textDecoration: 'none',
               fontSize: '0.95rem',
-              boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
+              boxShadow: '0 4px 16px rgba(26,26,46,0.15)',
             }}
           >
             Shop T-Shirts <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
@@ -107,7 +107,7 @@ export default function CartPage() {
                       <span style={{
                         display: 'inline-flex', alignItems: 'center', gap: '5px',
                         padding: '3px 10px', borderRadius: '100px',
-                        background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)',
+                        background: 'var(--accent-soft)', border: '1px solid rgba(108, 99, 255, 0.25)',
                         fontSize: '0.75rem', fontWeight: '700', color: 'var(--accent)',
                       }}>
                         Size: {item.size}
@@ -215,7 +215,7 @@ export default function CartPage() {
                 </span>
               </div>
               {cartTotal < 3000 && (
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)', padding: '8px 12px', borderRadius: '10px' }}>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', background: 'var(--accent-soft)', border: '1px solid rgba(108, 99, 255, 0.25)', padding: '8px 12px', borderRadius: '10px' }}>
                   Add Rs. {(3000 - cartTotal).toLocaleString()} more for free shipping!
                 </p>
               )}
@@ -234,7 +234,7 @@ export default function CartPage() {
             <div style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '10px 14px', borderRadius: '12px',
-              background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)',
+              background: 'var(--accent-soft)', border: '1px solid rgba(108, 99, 255, 0.25)',
               marginBottom: '16px',
             }}>
               <span style={{ fontSize: '1rem', display: 'flex' }}><PaymentsOutlinedIcon style={{ fontSize: 'inherit' }} /></span>
@@ -255,7 +255,7 @@ export default function CartPage() {
                 fontSize: '1rem',
                 fontWeight: '800',
                 textDecoration: 'none',
-                boxShadow: '0 4px 16px rgba(15,37,51,0.1)',
+                boxShadow: '0 4px 16px rgba(26,26,46,0.1)',
                 transition: 'all 0.25s',
               }}
               className="cart-checkout-btn"

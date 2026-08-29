@@ -14,7 +14,7 @@ export default function Badge({ text }: BadgeProps) {
       letterSpacing: '0.05em',
       textTransform: 'uppercase',
       color: 'var(--accent)',
-      border: '1px solid rgba(74, 158, 186, 0.2)',
+      border: '1px solid rgba(108, 99, 255, 0.2)',
     }}>
       {text}
     </span>

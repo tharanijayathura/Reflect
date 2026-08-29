@@ -62,7 +62,7 @@ export default function CategoriesPage() {
                     padding: '4px 12px',
                     borderRadius: '100px',
                     background: 'var(--accent-soft)',
-                    border: '1px solid rgba(74, 158, 186, 0.25)',
+                    border: '1px solid rgba(108, 99, 255, 0.25)',
                     fontSize: '0.65rem',
                     fontWeight: '700',
                     letterSpacing: '0.15em',
@@ -100,7 +100,7 @@ export default function CategoriesPage() {
                       fontWeight: '700',
                       textDecoration: 'none',
                       width: 'fit-content',
-                      boxShadow: '0 4px 12px rgba(15,37,51,0.1)',
+                      boxShadow: '0 4px 12px rgba(26,26,46,0.1)',
                       transition: 'all 0.2s',
                     }}
                     className="cat-shop-btn"

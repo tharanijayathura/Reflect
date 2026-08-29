@@ -60,7 +60,7 @@ export default function FeaturedGrid() {
               className="featured-card"
             >
               <Image src={main.image} alt={main.name} fill style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} className="featured-img" />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 37, 51, 0.7) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26, 26, 46, 0.7) 0%, transparent 60%)' }} />
               {main.badge && (
                 <div style={{
                   position: 'absolute', top: '20px', left: '20px',
@@ -96,7 +96,7 @@ export default function FeaturedGrid() {
                 className="featured-card"
               >
                 <Image src={product.image} alt={product.name} fill style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} className="featured-img" />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 37, 51, 0.7) 0%, transparent 60%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26, 26, 46, 0.7) 0%, transparent 60%)' }} />
                 {product.badge && (
                   <div style={{
                     position: 'absolute', top: '16px', left: '16px',
@@ -116,7 +116,7 @@ export default function FeaturedGrid() {
 
       <style>{`
         .featured-card:hover .featured-img { transform: scale(1.04); }
-        .featured-card:hover { border-color: rgba(74, 158, 186, 0.4); box-shadow: var(--shadow-hover); }
+        .featured-card:hover { border-color: rgba(108, 99, 255, 0.4); box-shadow: var(--shadow-hover); }
         .featured-view-all:hover { border-color: var(--accent); color: var(--accent); }
         @media (max-width: 768px) {
           .featured-grid { grid-template-columns: 1fr !important; }

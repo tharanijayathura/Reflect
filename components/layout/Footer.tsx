@@ -33,8 +33,8 @@ export default function Footer() {
     <footer style={{ background: 'var(--bg-dark)', marginTop: '80px' }}>
       {/* Trust strip */}
       <div style={{
-        background: 'rgba(74,158,186,0.12)',
-        borderBottom: '1px solid rgba(74,158,186,0.2)',
+        background: 'rgba(108,99,255,0.12)',
+        borderBottom: '1px solid rgba(108,99,255,0.2)',
         padding: '18px 24px',
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
@@ -60,7 +60,7 @@ export default function Footer() {
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', marginBottom: '20px' }}>
               <div style={{
                 width: '40px', height: '40px',
-                background: 'linear-gradient(135deg, #4a9eba, #2d6e87)',
+                background: 'linear-gradient(135deg, #6c63ff, #2d6e87)',
                 borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontWeight: '900', fontSize: '16px', color: '#fff', flexShrink: 0,
               }}>R</div>
@@ -75,7 +75,7 @@ export default function Footer() {
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               marginTop: '20px', padding: '10px 16px', borderRadius: '100px',
-              background: 'rgba(74,158,186,0.15)', border: '1px solid rgba(74,158,186,0.3)',
+              background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.3)',
             }}>
               <span style={{ fontSize: '0.9rem', display: 'flex', alignItems: 'center' }}><PaymentsOutlinedIcon style={{ fontSize: '1rem' }} /></span>
               <span style={{ fontSize: '0.72rem', fontWeight: '700', color: '#7bc2d6', letterSpacing: '0.08em' }}>CASH ON DELIVERY AVAILABLE</span>

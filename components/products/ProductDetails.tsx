@@ -324,7 +324,7 @@ export default function ProductDetails({ product }: { product: Product }) {
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   border: added ? '1px solid rgba(34,197,94,0.3)' : 'none',
-                  boxShadow: added ? 'none' : '0 4px 16px rgba(15,37,51,0.1)',
+                  boxShadow: added ? 'none' : '0 4px 16px rgba(26,26,46,0.1)',
                 } as React.CSSProperties}
               >
                 {adding ? 'Adding...' : added ? <><CheckIcon style={{ verticalAlign: 'middle', marginRight: '6px' }} /> Added to Cart!</> : <><ShoppingCartOutlinedIcon style={{ verticalAlign: 'middle', marginRight: '6px' }} /> Add to Cart</>}
@@ -358,7 +358,7 @@ export default function ProductDetails({ product }: { product: Product }) {
               padding: '14px 18px',
               borderRadius: '14px',
               background: 'var(--accent-soft)',
-              border: '1px solid rgba(74, 158, 186, 0.2)',
+              border: '1px solid rgba(108, 99, 255, 0.2)',
               marginBottom: '28px',
             }}>
               <span style={{ fontSize: '1.5rem', color: 'var(--accent)', display: 'flex' }}><PaymentsOutlinedIcon fontSize="inherit" /></span>

@@ -107,7 +107,7 @@ export default function CheckoutPage() {
             padding: '8px 20px',
             borderRadius: '100px',
             background: 'var(--accent-soft)',
-            border: '1px solid rgba(74, 158, 186, 0.25)',
+            border: '1px solid rgba(108, 99, 255, 0.25)',
             fontSize: '0.85rem',
             fontWeight: '700',
             color: 'var(--accent)',
@@ -138,7 +138,7 @@ export default function CheckoutPage() {
               fontSize: '0.95rem',
               fontWeight: '700',
               textDecoration: 'none',
-              boxShadow: '0 4px 16px rgba(15,37,51,0.1)',
+              boxShadow: '0 4px 16px rgba(26,26,46,0.1)',
             }}
           >
             Continue Shopping <ArrowForwardIcon style={{ fontSize: 'inherit' }} />
@@ -182,7 +182,7 @@ export default function CheckoutPage() {
                 <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span style={{
                     width: '30px', height: '30px', borderRadius: '50%',
-                    background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)',
+                    background: 'var(--accent-soft)', border: '1px solid rgba(108, 99, 255, 0.25)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.75rem', fontWeight: '900', color: 'var(--accent)',
                   }}>1</span>
@@ -350,7 +350,7 @@ export default function CheckoutPage() {
                 <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span style={{
                     width: '30px', height: '30px', borderRadius: '50%',
-                    background: 'var(--accent-soft)', border: '1px solid rgba(74, 158, 186, 0.25)',
+                    background: 'var(--accent-soft)', border: '1px solid rgba(108, 99, 255, 0.25)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.75rem', fontWeight: '900', color: 'var(--accent)',
                   }}>2</span>
@@ -365,7 +365,7 @@ export default function CheckoutPage() {
                   padding: '20px',
                   borderRadius: '16px',
                   background: 'var(--accent-soft)',
-                  border: '2px solid rgba(74, 158, 186, 0.25)',
+                  border: '2px solid rgba(108, 99, 255, 0.25)',
                 }}>
                   <div style={{
                     width: '20px', height: '20px', borderRadius: '50%',
@@ -461,7 +461,7 @@ export default function CheckoutPage() {
                 fontWeight: '800',
                 cursor: items.length === 0 ? 'not-allowed' : 'pointer',
                 opacity: placing ? 0.7 : 1,
-                boxShadow: items.length > 0 ? '0 4px 16px rgba(15,37,51,0.1)' : 'none',
+                boxShadow: items.length > 0 ? '0 4px 16px rgba(26,26,46,0.1)' : 'none',
                 transition: 'all 0.25s ease',
               }}
               className="checkout-place-btn"

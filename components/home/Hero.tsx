@@ -54,7 +54,7 @@ export default function Hero() {
             padding: '6px 14px',
             borderRadius: '100px',
             background: 'var(--accent-soft)',
-            border: '1px solid rgba(74, 158, 186, 0.25)',
+            border: '1px solid rgba(108, 99, 255, 0.25)',
             marginBottom: '24px',
             width: 'fit-content',
           }}>
@@ -112,7 +112,7 @@ export default function Hero() {
               fontWeight: '700',
               textDecoration: 'none',
               transition: 'all 0.25s ease',
-              boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
+              boxShadow: '0 4px 16px rgba(26,26,46,0.15)',
             }} className="hero-btn-primary">
               Shop Collection
               <ArrowForwardIcon style={{ fontSize: '1.1rem' }} />
@@ -153,7 +153,7 @@ export default function Hero() {
             width: '280px',
             height: '280px',
             borderRadius: '50%',
-            background: 'rgba(74, 158, 186, 0.28)',
+            background: 'rgba(108, 99, 255, 0.28)',
             filter: 'blur(60px)',
             zIndex: 2,
             pointerEvents: 'none',
@@ -170,7 +170,7 @@ export default function Hero() {
             borderRadius: '28px',
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.18) 100%)',
             border: '1px solid rgba(255, 255, 255, 0.45)',
-            boxShadow: '0 24px 60px rgba(15, 37, 51, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 2px rgba(255, 255, 255, 0.18), 0 2px 10px rgba(255, 255, 255, 0.25)',
+            boxShadow: '0 24px 60px rgba(26, 26, 46, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 2px rgba(255, 255, 255, 0.18), 0 2px 10px rgba(255, 255, 255, 0.25)',
             backdropFilter: 'blur(28px)',
             WebkitBackdropFilter: 'blur(28px)',
           }} className="hero-value-panel">
@@ -203,7 +203,7 @@ export default function Hero() {
                     width: '30px',
                     height: '30px',
                     borderRadius: '50%',
-                    background: 'rgba(15, 37, 51, 0.05)',
+                    background: 'rgba(26, 26, 46, 0.05)',
                     border: '1px solid rgba(255, 255, 255, 0.35)',
                     display: 'flex',
                     alignItems: 'center',
@@ -222,7 +222,7 @@ export default function Hero() {
                     fontSize: '0.85rem',
                     color: 'var(--c-slate)',
                     transition: 'all 0.25s ease',
-                  }}>→</span>
+                  }}><ArrowForwardIcon style={{ fontSize: '0.85rem' }} /></span>
                   <span className="acronym-word" style={{
                     fontSize: '0.88rem',
                     fontWeight: '600',
@@ -265,7 +265,7 @@ export default function Hero() {
         }
         .acronym-row:hover {
           background: rgba(255, 255, 255, 0.25) !important;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px rgba(15, 37, 51, 0.04) !important;
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px rgba(26, 26, 46, 0.04) !important;
         }
         .acronym-row:hover .acronym-badge {
           background: var(--accent) !important;
@@ -351,7 +351,7 @@ export default function Hero() {
           transform: translateY(-6px) scale(1.015) !important;
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 100%) !important;
           border-color: rgba(255, 255, 255, 0.6) !important;
-          box-shadow: 0 35px 70px rgba(15, 37, 51, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -1px 2px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(255, 255, 255, 0.35) !important;
+          box-shadow: 0 35px 70px rgba(26, 26, 46, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -1px 2px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(255, 255, 255, 0.35) !important;
         }
       `}</style>
     </section>

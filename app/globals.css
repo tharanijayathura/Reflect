@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* === REFLECT FASHION — 5-COLOR PALETTE ===
+  /* === REFLECT FASHION — MODERN PALETTE ===
      1. White: #ffffff
-     2. Navy: #0f2533
-     3. Teal: #4a9eba
-     4. Light Teal: #eef6f9
-     5. Slate Blue: #516f80
+     2. Deep Navy: #1a1a2e
+     3. Indigo-Violet: #6c63ff
+     4. Soft Lavender: #f0eeff
+     5. Slate Gray: #64748b
   */
 
   /* Base mapping to 5 core colors */
   --c-white: #ffffff;
-  --c-navy: #0f2533;
-  --c-teal: #4a9eba;
-  --c-light-teal: #eef6f9;
-  --c-slate: #516f80;
+  --c-navy: #1a1a2e;
+  --c-teal: #6c63ff;
+  --c-light-teal: #f0eeff;
+  --c-slate: #64748b;
 
   /* UI Tokens mapped strictly to the 5 colors above */
   --bg: var(--c-white);
@@ -41,24 +41,24 @@
   --accent-mid: var(--c-teal);
   --accent-dark: var(--c-navy);
   --accent-light: var(--c-teal);
-  --accent-soft: rgba(74, 158, 186, 0.12); /* Opacity variant of #4a9eba */
-  --accent-glow: rgba(74, 158, 186, 0.25); /* Opacity variant of #4a9eba */
+  --accent-soft: rgba(108, 99, 255, 0.12);
+  --accent-glow: rgba(108, 99, 255, 0.25);
   --accent-bg: var(--c-light-teal);
 
   /* Navy CTA */
   --navy: var(--c-navy);
   --navy-hover: var(--c-navy);
 
-  /* Status Colors (Using opacity or mapping to accent when possible, but standard status highlights are allowed) */
-  --success: #22c55e;
+  /* Status Colors */
+  --success: #10b981;
   --error: #ef4444;
   --warning: var(--c-teal);
 
   /* Shadows using opacity on the navy color */
-  --shadow-sm: 0 1px 4px rgba(15,37,51,0.06);
-  --shadow-card: 0 2px 16px rgba(15,37,51,0.08), 0 0 0 1px rgba(74,158,186,0.06);
-  --shadow-hover: 0 8px 32px rgba(74,158,186,0.18), 0 0 0 1px rgba(74,158,186,0.15);
-  --shadow-glow: 0 0 30px rgba(74, 158, 186, 0.2);
+  --shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+  --shadow-card: 0 2px 16px rgba(26, 26, 46, 0.08), 0 0 0 1px rgba(108, 99, 255, 0.06);
+  --shadow-hover: 0 8px 32px rgba(108, 99, 255, 0.18), 0 0 0 1px rgba(108, 99, 255, 0.15);
+  --shadow-glow: 0 0 30px rgba(108, 99, 255, 0.2);
 }
 
 * {
@@ -145,7 +145,7 @@ img {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(74,158,186,0.15);
+  border: 1px solid rgba(108, 99, 255, 0.15);
 }
 
 /* ========== CARD HOVER ========== */
@@ -155,7 +155,7 @@ img {
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(74, 158, 186, 0.3);
+  border-color: rgba(108, 99, 255, 0.3);
 }
 
 /* ========== INPUT FIELD ========== */

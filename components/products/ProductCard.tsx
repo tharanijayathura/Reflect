@@ -93,7 +93,7 @@ export default function ProductCard({ product }: { product: Product }) {
           background: 'rgba(255, 255, 255, 0.9)',
           border: '1px solid var(--border)',
           fontSize: '0.7rem', fontWeight: '700', color: 'var(--text-primary)',
-          boxShadow: '0 2px 8px rgba(15,37,51,0.04)',
+          boxShadow: '0 2px 8px rgba(26,26,46,0.04)',
         }}>
           <StarIcon style={{ fontSize: '0.85rem', verticalAlign: 'text-bottom' }} /> {product.rating} ({product.reviews})
         </div>
@@ -200,7 +200,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <style>{`
         .product-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(74, 158, 186, 0.3);
+          border-color: rgba(108, 99, 255, 0.3);
           box-shadow: var(--shadow-hover);
         }
         .product-card:hover .product-card-img { transform: scale(1.04); }

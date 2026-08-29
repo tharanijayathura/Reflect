@@ -65,7 +65,7 @@ export default function ContactPage() {
                 cursor: 'pointer',
                 fontSize: '0.9rem',
                 textAlign: 'center',
-                boxShadow: '0 4px 12px rgba(15,37,51,0.1)',
+                boxShadow: '0 4px 12px rgba(26,26,46,0.1)',
               }}>
                 Send Message
               </button>

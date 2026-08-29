@@ -48,7 +48,7 @@ export default function CategoriesPreview() {
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(15, 37, 51, 0.85) 0%, rgba(74, 158, 186, 0.2) 60%, transparent 100%)',
+                background: 'linear-gradient(to top, rgba(26, 26, 46, 0.85) 0%, rgba(108, 99, 255, 0.2) 60%, transparent 100%)',
               }} />
               {/* Content */}
               <div style={{
@@ -63,7 +63,7 @@ export default function CategoriesPreview() {
                   padding: '4px 12px',
                   borderRadius: '100px',
                   background: 'var(--accent-soft)',
-                  border: '1px solid rgba(74, 158, 186, 0.3)',
+                  border: '1px solid rgba(108, 99, 255, 0.3)',
                   fontSize: '0.65rem',
                   fontWeight: '700',
                   letterSpacing: '0.15em',
@@ -103,7 +103,7 @@ export default function CategoriesPreview() {
 
       <style>{`
         .cat-card:hover .cat-img { transform: scale(1.05); }
-        .cat-card:hover { border-color: rgba(74, 158, 186, 0.4); box-shadow: var(--shadow-hover); }
+        .cat-card:hover { border-color: rgba(108, 99, 255, 0.4); box-shadow: var(--shadow-hover); }
         .cat-card:hover .cat-btn { background: rgba(255, 255, 255, 0.3) !important; }
         @media (max-width: 1024px) {
           .cat-grid { grid-template-columns: repeat(2, 1fr) !important; }

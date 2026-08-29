@@ -17,7 +17,7 @@ const styles = {
     background: 'var(--navy)',
     color: 'var(--c-white)',
     border: 'none',
-    boxShadow: '0 4px 16px rgba(15,37,51,0.15)',
+    boxShadow: '0 4px 16px rgba(26,26,46,0.15)',
   },
   secondary: {
     background: 'transparent',

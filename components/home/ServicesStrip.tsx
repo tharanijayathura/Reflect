@@ -5,10 +5,10 @@ import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOu
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 
 const perks = [
-  { icon: <LocalShippingOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Free Delivery', description: 'Free island-wide shipping on orders over Rs. 3,000', color: '#4a9eba' },
+  { icon: <LocalShippingOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Free Delivery', description: 'Free island-wide shipping on orders over Rs. 3,000', color: '#6c63ff' },
   { icon: <PaymentsOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Cash on Delivery', description: 'Pay when your order arrives. No card required.', color: '#2d6e87' },
   { icon: <AssignmentReturnOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Easy Returns', description: '7-day no-hassle return policy on all items.', color: '#3e8da8' },
-  { icon: <AutoAwesomeOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Premium Quality', description: 'Premium cotton fabrics that feel great and last.', color: '#0f2533' },
+  { icon: <AutoAwesomeOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Premium Quality', description: 'Premium cotton fabrics that feel great and last.', color: '#1a1a2e' },
 ];
 
 export default function ServicesStrip() {
@@ -42,7 +42,7 @@ export default function ServicesStrip() {
       </div>
 
       <style>{`
-        .perk-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover) !important; border-color: rgba(74,158,186,0.25) !important; }
+        .perk-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover) !important; border-color: rgba(108,99,255,0.25) !important; }
         @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 640px)  { .services-grid { grid-template-columns: 1fr !important; } }
       `}</style>

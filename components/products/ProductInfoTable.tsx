@@ -1,4 +1,7 @@
+'use client';
 import type { Product } from '@/lib/data';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 export default function ProductInfoTable({ product }: { product: Product }) {
   const rows = [
@@ -8,7 +11,7 @@ export default function ProductInfoTable({ product }: { product: Product }) {
     { label: 'Category', value: product.category.charAt(0).toUpperCase() + product.category.slice(1) },
     { label: 'Available Sizes', value: product.sizes.join(', ') },
     { label: 'Available Colors', value: product.colors.join(', ') },
-    { label: 'Stock Status', value: product.inStock ? '✓ In Stock' : '✗ Out of Stock' },
+    { label: 'Stock Status', value: product.inStock ? <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><CheckCircleOutlinedIcon style={{ fontSize: '1rem', color: '#10b981' }} /> In Stock</span> : <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}><CancelOutlinedIcon style={{ fontSize: '1rem', color: '#ef4444' }} /> Out of Stock</span> },
     { label: 'Rating', value: `${product.rating} / 5 (${product.reviews} reviews)` },
   ];
 
