@@ -4,13 +4,13 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Hero() {
   const acronymItems = [
-    { letter: 'R', word: 'efined Design' },
-    { letter: 'E', word: 'veryday Comfort' },
-    { letter: 'F', word: 'ine Fabrics' },
-    { letter: 'L', word: 'ocal Craftsmanship' },
-    { letter: 'E', word: 'ssential Fits' },
-    { letter: 'C', word: 'lassic Curation' },
-    { letter: 'T', word: 'rending Styles' },
+    { letter: 'R', word: 'Refined Design' },
+    { letter: 'E', word: 'Everyday Comfort' },
+    { letter: 'F', word: 'Fine Fabrics' },
+    { letter: 'L', word: 'Local Craftsmanship' },
+    { letter: 'E', word: 'Essential Fits' },
+    { letter: 'C', word: 'Classic Curation' },
+    { letter: 'T', word: 'Trending Styles' },
   ];
 
   return (
