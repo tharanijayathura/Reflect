@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-// The stylesheet is provided by the app's global CSS pipeline, but TypeScript
-// may not have a declaration for CSS side-effect imports in some configurations.
-// @ts-expect-error CSS files are handled by Next.js at build time.
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
