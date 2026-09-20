@@ -58,6 +58,7 @@ export default function Navbar() {
 
       <div className={`fashion-menu-overlay ${menuOpen ? 'fashion-menu-overlay--open' : ''}`} onClick={closeMenu} />
       <aside className={`fashion-mobile-menu ${menuOpen ? 'fashion-mobile-menu--open' : ''}`} aria-label="Mobile navigation">
+        <button type="button" className="mobile-menu-close" onClick={closeMenu} aria-label="Close menu"><CloseRoundedIcon /></button>
         <p>Shop the edit</p>
         {primaryLinks.map((link, index) => <Link key={link.href} href={link.href} onClick={closeMenu}><small>0{index + 1}</small>{link.label}<ArrowForwardRoundedIcon /></Link>)}
         <Link href="/wishlist" onClick={closeMenu}>My wishlist <ArrowForwardRoundedIcon /></Link>
@@ -65,7 +66,7 @@ export default function Navbar() {
       </aside>
 
       <style>{`
-        .fashion-header { position:relative; z-index:50; width:100%; padding:15px 16px; background:var(--hero-yellow); color:var(--c-navy); }
+        .fashion-header { position:sticky; top:0; z-index:50; width:100%; padding:15px 16px; background:var(--hero-yellow); color:var(--c-navy); }
         .main-navigation { position:relative; width:min(100%,1260px); min-height:70px; margin:0 auto; padding:0 clamp(18px,3vw,42px); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; border:1px solid rgba(21,20,37,.13); border-radius:16px; background:rgba(255,251,235,.94); box-shadow:0 10px 24px rgba(87,59,0,.08); }
         .desktop-links { display:flex; gap:clamp(16px,2vw,31px); align-items:center; }
         .desktop-links a { position:relative; padding:7px 0; color:var(--c-navy); font-size:.72rem; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
@@ -80,17 +81,19 @@ export default function Navbar() {
         .navigation-tools svg { font-size:1.17rem; }
         .bag-link { position:relative; gap:5px; font-size:.7rem; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
         .bag-link b { min-width:16px; height:16px; display:grid; place-items:center; border-radius:50%; background:var(--accent); color:#fff; font-size:.56rem; }
-        .mobile-menu-button { display:none; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid rgba(26,26,46,.12); border-radius:50%; background:#fff; color:var(--c-navy); cursor:pointer; }
+        .mobile-menu-button { display:none; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid rgba(26,26,46,.12); border-radius:10px; background:#fff; color:var(--c-navy); cursor:pointer; }
         .fashion-menu-overlay { position:fixed; inset:0; z-index:55; background:rgba(15,14,35,.35); opacity:0; pointer-events:none; transition:opacity .25s ease; }
         .fashion-menu-overlay--open { opacity:1; pointer-events:auto; }
-        .fashion-mobile-menu { position:fixed; top:0; right:0; bottom:0; z-index:60; width:min(360px,90vw); padding:98px 28px 28px; display:flex; flex-direction:column; background:#f0eeff; transform:translateX(100%); transition:transform .35s cubic-bezier(.22,1,.36,1); }
+        .fashion-mobile-menu { position:fixed; top:0; right:0; bottom:0; z-index:60; width:min(360px,90vw); padding:98px 28px 28px; display:flex; flex-direction:column; background:var(--warm-cream); transform:translateX(100%); transition:transform .35s cubic-bezier(.22,1,.36,1); }
         .fashion-mobile-menu--open { transform:translateX(0); }
+        .mobile-menu-close { position:absolute; top:22px; right:22px; width:40px; height:40px; display:grid; place-items:center; border:1px solid rgba(21,20,37,.14); border-radius:50%; background:var(--hero-yellow); color:var(--c-navy); cursor:pointer; }
+        .mobile-menu-close svg { font-size:1.25rem; }
         .fashion-mobile-menu > p { margin-bottom:19px; color:var(--accent); font-size:.67rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
         .fashion-mobile-menu a { display:grid; grid-template-columns:28px 1fr auto; align-items:center; padding:15px 0; border-top:1px solid rgba(26,26,46,.1); color:var(--c-navy); font-size:1.08rem; font-weight:850; text-decoration:none; }
         .fashion-mobile-menu a small { color:var(--text-muted); font-size:.61rem; letter-spacing:.08em; }
         .fashion-mobile-menu a svg { font-size:1rem; }
-        @media (max-width:850px) { .desktop-links { display:none; } .main-navigation { grid-template-columns:1fr auto 1fr; min-height:65px; } .mobile-menu-button { display:inline-flex; } }
-        @media (max-width:480px) { .fashion-header { padding:10px; } .main-navigation { padding:0 14px; min-height:60px; border-radius:13px; } .fashion-logo span { font-size:1.23rem; } .fashion-logo small { font-size:.43rem; } .navigation-tools { gap:9px; } .navigation-tools > a:not(.bag-link) { display:none; } .bag-link span { display:none; } }
+        @media (max-width:850px) { .fashion-header { padding:10px 14px; } .desktop-links { display:none; } .main-navigation { grid-template-columns:1fr auto 1fr; min-height:65px; } .mobile-menu-button { display:inline-flex; } }
+        @media (max-width:480px) { .fashion-header { padding:8px 10px; } .main-navigation { padding:0 14px; min-height:60px; border-radius:13px; } .fashion-logo span { font-size:1.23rem; } .fashion-logo small { font-size:.43rem; } .navigation-tools { height:38px; gap:7px; } .navigation-tools > a:not(.bag-link) { display:none; } .bag-link { width:38px; height:38px; padding:0; border:1px solid rgba(21,20,37,.12); border-radius:10px; background:rgba(255,255,255,.68); } .bag-link span { display:none; } .bag-link b { position:absolute; top:-4px; right:-4px; min-width:15px; height:15px; } .mobile-menu-button { width:38px; height:38px; flex:0 0 38px; background:var(--hero-yellow); border-color:rgba(21,20,37,.12); } .fashion-mobile-menu { width:100%; padding:84px 22px 22px; } .mobile-menu-close { top:16px; right:16px; } }
       `}</style>
     </>
   );
