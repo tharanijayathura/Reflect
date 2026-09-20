@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import ProductCard from '@/components/products/ProductCard';
+import ProductCard from '@/components/ProductCard';
 import { products } from '@/lib/data';
 import SearchIcon from '@mui/icons-material/Search';
 type Category = 'all' | 'men' | 'women' | 'unisex';

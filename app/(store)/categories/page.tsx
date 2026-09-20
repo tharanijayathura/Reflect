@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import ProductCard from '@/components/products/ProductCard';
+import ProductCard from '@/components/ProductCard';
 import { categories, products } from '@/lib/data';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 export default function CategoriesPage() {

@@ -1,5 +1,5 @@
-import PageHero from '@/components/common/PageHero';
-import Container from '@/components/common/Container';
+import PageHero from '@/components/PageHero';
+import Container from '@/components/Container';
 import Image from 'next/image';
 
 export default function AboutPage() {

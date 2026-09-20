@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import ProductDetails from '@/components/products/ProductDetails';
-import ProductCard from '@/components/products/ProductCard';
+import ProductDetails from '@/components/ProductDetails';
+import ProductCard from '@/components/ProductCard';
 import { products } from '@/lib/data';
 
 type ProductPageProps = {

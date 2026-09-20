@@ -1,5 +1,5 @@
-import PageHero from '@/components/common/PageHero';
-import Container from '@/components/common/Container';
+import PageHero from '@/components/PageHero';
+import Container from '@/components/Container';
 
 export default function PrivacyPage() {
   return (

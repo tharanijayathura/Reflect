@@ -1,6 +1,6 @@
-import PageHero from '@/components/common/PageHero';
-import Container from '@/components/common/Container';
-import ProductGrid from '@/components/products/ProductGrid';
+import PageHero from '@/components/PageHero';
+import Container from '@/components/Container';
+import ProductGrid from '@/components/ProductGrid';
 import { products } from '@/lib/data';
 
 export default function WishlistPage() {

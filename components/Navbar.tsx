@@ -9,6 +9,7 @@ import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import { useCart } from '@/lib/cart-context';
 
 const primaryLinks = [
   { href: '/products?category=men', label: 'Men' },
@@ -19,7 +20,7 @@ const primaryLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const cartCount = 0;
+  const { cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {

@@ -1,51 +1,37 @@
 # Reflect Fashion
 
-A modern, premium T-shirt e-commerce platform built with Next.js and TypeScript.
+A modern fashion store built with Next.js and TypeScript.
 
-## Project Structure
+## Simple project structure
 
 ```
 reflect-fashion/
-├── app/                  # Next.js App Router pages
-├── components/           # Reusable React components
-│   ├── common/           # Shared UI components (Button, Badge, etc.)
-│   ├── home/             # Homepage sections (Hero, Categories, etc.)
-│   ├── layout/           # Layout components (Navbar, Footer)
-│   └── products/         # Product-related components
-├── lib/                  # Data, utilities, and context
-├── public/               # Static assets (images, icons)
-├── backend/              # Backend API (scaffold — ready for development)
-│   ├── src/              # API source code
-│   ├── package.json
-│   └── tsconfig.json
-└── package.json          # Frontend dependencies
+├── app/                 # Next.js routes, grouped without changing URLs
+│   ├── (store)/         # Home, products, cart, checkout, account, wishlist
+│   ├── (info)/          # About, contact, FAQ, policies and delivery pages
+│   ├── layout.tsx       # Shared page shell, navigation and footer
+│   └── globals.css      # Site-wide styles and colours
+├── components/          # All reusable website sections and UI
+├── lib/                 # Product data and shopping-cart state
+├── public/images/       # Product and hero images
+├── package.json         # Project dependencies and commands
+└── README.md            # This guide
 ```
 
-## Getting Started
+### Where to edit things
 
-### Frontend
+- Change the home page layout in `app/(store)/page.tsx`.
+- Change the hero section in `components/Hero.tsx`.
+- Change the navigation in `components/Navbar.tsx`.
+- Change product information in `lib/data.ts`.
+- Add or replace images in `public/images/`.
+- Adjust site-wide colours and styles in `app/globals.css`.
+
+## Start the website
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
-
-### Backend
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-## Tech Stack
-
-- **Frontend**: Next.js 16, React 19, TypeScript, MUI Icons, Tailwind CSS
-- **Backend**: TypeScript (scaffold ready for Express/Fastify/Hono)
-- **Deployment**: Vercel
-
-## Deploy
-
-Deploy to [Vercel](https://vercel.com) with one click — the easiest way to go live.
+Open [http://localhost:3000](http://localhost:3000).
