@@ -1,358 +1,65 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+
+const reflectValues = ['Refined design', 'Everyday comfort', 'Fine fabrics', 'Local craftsmanship', 'Essential fits', 'Classic curation', 'Trending styles'];
 
 export default function Hero() {
-  const acronymItems = [
-    { letter: 'R', word: 'Refined Design' },
-    { letter: 'E', word: 'Everyday Comfort' },
-    { letter: 'F', word: 'Fine Fabrics' },
-    { letter: 'L', word: 'Local Craftsmanship' },
-    { letter: 'E', word: 'Essential Fits' },
-    { letter: 'C', word: 'Classic Curation' },
-    { letter: 'T', word: 'Trending Styles' },
-  ];
-
   return (
-    <section style={{
-      position: 'relative',
-      background: '#ffffff',
-      minHeight: '620px',
-      height: 'calc(100vh - 70px)',
-      display: 'flex',
-      alignItems: 'center',
-      overflow: 'hidden',
-    }} className="hero-section">
-      
-      {/* Split Grid Layout */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 0.9fr',
-        width: '100%',
-        height: '100%',
-        alignItems: 'stretch',
-      }} className="hero-container">
+    <section className="yellow-hero">
+      <div className="hero-wordmark" aria-hidden="true">REFLECT</div>
+      <div className="hero-model">
+        <Image src="/images/herogirl.png" alt="Woman wearing the Reflect Fashion collection" fill priority sizes="(max-width: 768px) 90vw, 54vw" />
+      </div>
 
-        {/* Left Column: Clean Solid White Page Editorial Content */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '48px 40px 48px 10%',
-          zIndex: 2,
-          position: 'relative',
-          background: '#ffffff',
-          maxWidth: '640px',
-          gap: '16px',
-        }} className="hero-left-col">
-          
-          {/* Eyebrow */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '6px 14px',
-            borderRadius: '100px',
-            background: 'var(--accent-soft)',
-            border: '1px solid rgba(108, 99, 255, 0.25)',
-            marginBottom: '24px',
-            width: 'fit-content',
-          }}>
-            <span style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              background: 'var(--accent)',
-              display: 'block',
-            }} />
-            <span style={{ fontSize: '0.72rem', fontWeight: '700', letterSpacing: '0.15em', color: 'var(--c-navy)', textTransform: 'uppercase' }}>
-              New Season T-Shirts
-            </span>
-          </div>
+      <div className="hero-side-copy">
+        <span className="hero-kicker">Reflect fashion</span>
+        <p>Style made<br />to move with<br /><strong>you.</strong></p>
+      </div>
 
-          {/* Large Headline */}
-          <h1 style={{
-            fontSize: 'clamp(4rem, 7vw, 6.8rem)',
-            fontWeight: '950',
-            lineHeight: '1.05',
-            letterSpacing: '-0.04em',
-            color: 'var(--text-primary)',
-            marginTop: '12px',
-            marginBottom: '2px',
-          }} className="hero-headline">
-            <span style={{
-              background: 'linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>REFLECT</span>
-          </h1>
+      <div className="hero-main-action">
+        <Link href="/products">Shop new drop <ArrowForwardRoundedIcon /></Link>
+        <Link href="/categories">Explore styles</Link>
+      </div>
 
-          <p style={{
-            maxWidth: '520px',
-            fontSize: '1rem',
-            lineHeight: '1.75',
-            color: 'var(--text-secondary)',
-            marginBottom: '6px',
-          }}>
-            Clean silhouettes, soft textures, and everyday fits made to feel effortless from the first wear.
-          </p>
+      <div className="hero-collection-note">
+        <span>Colour edit</span>
+        <strong>New<br />collection</strong>
+        <small>2026 — 01</small>
+      </div>
 
-          {/* CTAs */}
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '8px' }}>
-            <Link href="/products" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              borderRadius: '100px',
-              background: 'var(--navy)',
-              color: '#fff',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              transition: 'all 0.25s ease',
-              boxShadow: '0 4px 16px rgba(26,26,46,0.15)',
-            }} className="hero-btn-primary">
-              Shop Collection
-              <ArrowForwardIcon style={{ fontSize: '1.1rem' }} />
-            </Link>
-            <Link href="/categories" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              borderRadius: '100px',
-              background: '#fff',
-              border: '1.5px solid var(--border-dark)',
-              color: 'var(--text-primary)',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              transition: 'all 0.25s ease',
-            }} className="hero-btn-secondary">
-              Browse Categories
-            </Link>
-          </div>
-
-        </div>
-
-        {/* Right Column: Clean image column for image.png */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-          background: '#ffffff',
-          overflow: 'hidden',
-        }} className="hero-right-col">
-          {/* Decorative Back-light glow behind glass card */}
-          <div style={{
-            position: 'absolute',
-            top: '40px',
-            right: '40px',
-            width: '280px',
-            height: '280px',
-            borderRadius: '50%',
-            background: 'rgba(108, 99, 255, 0.28)',
-            filter: 'blur(60px)',
-            zIndex: 2,
-            pointerEvents: 'none',
-          }} />
-
-          {/* Liquid Glass Card */}
-          <div style={{
-            position: 'absolute',
-            top: '32px',
-            right: '32px',
-            zIndex: 3,
-            width: 'min(380px, 44%)',
-            padding: '24px 28px',
-            borderRadius: '28px',
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.18) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.45)',
-            boxShadow: '0 24px 60px rgba(26, 26, 46, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 2px rgba(255, 255, 255, 0.18), 0 2px 10px rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(28px)',
-            WebkitBackdropFilter: 'blur(28px)',
-          }} className="hero-value-panel">
-            <div style={{
-              fontSize: '0.72rem',
-              fontWeight: '800',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: 'var(--c-navy)',
-              opacity: 0.8,
-              marginBottom: '16px',
-            }} className="hero-panel-title">
-              Reflect values
-            </div>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '6px',
-            }} className="acronym-list">
-              {acronymItems.map((item, index) => (
-                <div key={`${item.letter}-${index}`} className="acronym-row" style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '8px 12px',
-                  borderRadius: '14px',
-                  transition: 'all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1)',
-                  borderBottom: index !== acronymItems.length - 1 ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
-                }}>
-                  <div style={{
-                    width: '30px',
-                    height: '30px',
-                    borderRadius: '50%',
-                    background: 'rgba(26, 26, 46, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.35)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: '900',
-                    fontSize: '0.95rem',
-                    color: 'var(--c-navy)',
-                    marginRight: '12px',
-                    transition: 'all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1)',
-                  }} className="acronym-badge">
-                    {item.letter}
-                  </div>
-                  <span className="acronym-arrow" style={{
-                    marginRight: '8px',
-                    opacity: 0.35,
-                    fontSize: '0.85rem',
-                    color: 'var(--c-slate)',
-                    transition: 'all 0.25s ease',
-                  }}><ArrowForwardIcon style={{ fontSize: '0.85rem' }} /></span>
-                  <span className="acronym-word" style={{
-                    fontSize: '0.88rem',
-                    fontWeight: '600',
-                    color: 'var(--c-slate)',
-                    transition: 'all 0.25s ease',
-                  }}>{item.word}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <Image
-            src="/images/Tshirts/women/16.jpg"
-            alt="Reflect Fashion Collection"
-            fill
-            style={{
-              objectFit: 'cover',
-              objectPosition: '50% 28%',
-              transform: 'scale(1.06)',
-            }}
-            priority
-          />
-          {/* Blend mask overlay on the left edge of the right column */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: 1,
-            pointerEvents: 'none',
-          }} className="hero-blend-mask" />
-        </div>
-
+      <div className="hero-reflect-code" aria-label="The Reflect Fashion code">
+        <span>The Reflect code</span>
+        <p>{reflectValues.map((value) => <em key={value}><b>{value.charAt(0)}</b>{value.slice(1)}</em>)}</p>
       </div>
 
       <style>{`
-        .hero-btn-primary:hover { background: var(--accent) !important; transform: translateY(-2px); }
-        .hero-btn-secondary:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
-        
-        /* Acronym list styled cleanly on left column */
-        .acronym-row {
-          cursor: pointer;
-        }
-        .acronym-row:hover {
-          background: rgba(255, 255, 255, 0.25) !important;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 12px rgba(26, 26, 46, 0.04) !important;
-        }
-        .acronym-row:hover .acronym-badge {
-          background: var(--accent) !important;
-          color: #fff !important;
-          border-color: var(--accent) !important;
-          transform: scale(1.1) rotate(5deg) !important;
-        }
-        .acronym-row:hover .acronym-arrow {
-          opacity: 1 !important;
-          color: var(--accent) !important;
-          transform: translateX(3px) !important;
-        }
-        .acronym-row:hover .acronym-word {
-          color: var(--c-navy) !important;
-          transform: translateX(3px) !important;
-        }
-
-        /* Smooth blending gradient on desktop split screens */
-        @media (min-width: 1025px) {
-          .hero-headline {
-            width: fit-content !important;
-          }
-          .hero-blend-mask {
-            background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0.95) 8%, rgba(255, 255, 255, 0) 35%) !important;
-          }
-        }
-
-        /* Responsive styling for smaller viewports */
-        @media (max-width: 1024px) {
-          .hero-section { height: auto !important; min-height: auto !important; padding: 60px 0 0 !important; }
-          .hero-container { grid-template-columns: 1fr !important; }
-          .hero-left-col { padding: 40px 24px !important; max-width: none !important; }
-          .hero-right-col { height: 440px !important; }
-          
-          /* Compact Liquid Glass Panel for Mobile */
-          .hero-value-panel { 
-            width: calc(100% - 24px) !important; 
-            max-width: 320px !important; 
-            top: 12px !important;
-            right: 12px !important;
-            padding: 12px 14px !important;
-            border-radius: 20px !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-          }
-          .hero-value-panel .hero-panel-title {
-            margin-bottom: 8px !important;
-            font-size: 0.65rem !important;
-            letter-spacing: 0.14em !important;
-          }
-          .hero-value-panel .acronym-list {
-            gap: 3px !important;
-          }
-          .hero-value-panel .acronym-row {
-            padding: 4px 6px !important;
-            border-radius: 8px !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-          }
-          .hero-value-panel .acronym-badge {
-            width: 22px !important;
-            height: 22px !important;
-            font-size: 0.75rem !important;
-            margin-right: 6px !important;
-          }
-          .hero-value-panel .acronym-arrow {
-            font-size: 0.7rem !important;
-            margin-right: 4px !important;
-          }
-          .hero-value-panel .acronym-word {
-            font-size: 0.78rem !important;
-          }
-          
-          .hero-blend-mask {
-            background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0) 35%) !important;
-          }
-        }
-
-        /* Liquid Glass Sheen Hover Effect */
-        .hero-value-panel {
-          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-        }
-        .hero-value-panel:hover {
-          transform: translateY(-6px) scale(1.015) !important;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 100%) !important;
-          border-color: rgba(255, 255, 255, 0.6) !important;
-          box-shadow: 0 35px 70px rgba(26, 26, 46, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -1px 2px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(255, 255, 255, 0.35) !important;
-        }
+        .yellow-hero { position:relative; min-height:700px; height:calc(100vh - 100px); max-height:910px; overflow:hidden; isolation:isolate; background:var(--hero-yellow); color:#151425; }
+        .hero-wordmark { position:absolute; z-index:-1; top:50%; left:50%; width:100%; transform:translate(-50%,-51%); color:#171526; font-size:clamp(7.2rem,17.8vw,19rem); font-weight:950; letter-spacing:-.105em; line-height:.75; text-align:center; white-space:nowrap; user-select:none; }
+        .hero-model { position:absolute; z-index:1; top:1%; left:50%; width:min(51vw,690px); height:100%; transform:translateX(-43%); }
+        .hero-model img { object-fit:contain; object-position:center bottom; filter:drop-shadow(17px 21px 18px rgba(62,43,0,.18)); }
+        .hero-side-copy { position:absolute; z-index:2; top:18%; left:clamp(24px,8vw,110px); }
+        .hero-kicker { display:block; margin-bottom:13px; font-size:.64rem; font-weight:900; letter-spacing:.21em; text-transform:uppercase; }
+        .hero-side-copy p { margin:0; font-size:clamp(.92rem,1.25vw,1.16rem); font-weight:800; letter-spacing:.17em; line-height:1.42; text-transform:uppercase; }
+        .hero-side-copy strong { color:var(--accent); }
+        .hero-main-action { position:absolute; z-index:3; bottom:12%; left:clamp(24px,8vw,110px); display:flex; align-items:center; gap:20px; }
+        .hero-main-action a { color:#151425; font-size:.68rem; font-weight:900; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+        .hero-main-action a:first-child { display:flex; align-items:center; gap:11px; padding:15px 20px; background:#171526; color:#fff; transition:background .2s ease,transform .2s ease; }
+        .hero-main-action a:first-child:hover { transform:translateY(-2px); background:var(--accent); }
+        .hero-main-action a:first-child svg { font-size:.95rem; }
+        .hero-main-action a:last-child { position:relative; padding-bottom:5px; }
+        .hero-main-action a:last-child::after { content:''; position:absolute; right:0; bottom:0; left:0; height:1px; background:#171526; }
+        .hero-collection-note { position:absolute; z-index:2; right:clamp(24px,7vw,100px); bottom:12%; display:flex; flex-direction:column; align-items:flex-start; }
+        .hero-collection-note span { margin-bottom:8px; font-size:.61rem; font-weight:900; letter-spacing:.21em; text-transform:uppercase; }
+        .hero-collection-note strong { font-size:.87rem; font-weight:900; letter-spacing:.17em; line-height:1.45; text-transform:uppercase; }
+        .hero-collection-note small { margin-top:8px; padding-top:7px; border-top:1px solid #171526; font-size:.59rem; font-weight:800; letter-spacing:.19em; }
+        .hero-reflect-code { position:absolute; z-index:3; left:clamp(24px,8vw,110px); bottom:calc(12% + 72px); max-width:350px; }
+        .hero-reflect-code > span { display:block; margin-bottom:7px; color:rgba(21,20,37,.62); font-size:.55rem; font-weight:900; letter-spacing:.19em; text-transform:uppercase; }
+        .hero-reflect-code p { display:flex; flex-wrap:wrap; gap:4px 11px; margin:0; color:#272436; font-size:.56rem; font-weight:750; letter-spacing:.05em; line-height:1.5; text-transform:uppercase; }
+        .hero-reflect-code em { font-style:normal; white-space:nowrap; }
+        .hero-reflect-code b { color:var(--accent); font-size:.71rem; }
+        @media (max-width:900px) { .hero-wordmark { top:48%; font-size:clamp(7rem,19vw,12rem); } .hero-model { width:min(65vw,570px); transform:translateX(-38%); } .hero-collection-note { right:30px; } .hero-reflect-code { max-width:255px; } }
+        @media (max-width:640px) { .yellow-hero { min-height:680px; height:calc(100svh - 85px); } .hero-wordmark { top:44%; font-size:clamp(5.5rem,25.5vw,9rem); letter-spacing:-.1em; } .hero-model { top:15%; left:54%; width:96vw; height:75%; transform:translateX(-50%); } .hero-side-copy { top:8%; left:24px; } .hero-kicker { margin-bottom:7px; font-size:.54rem; } .hero-side-copy p { font-size:.75rem; letter-spacing:.13em; } .hero-main-action { bottom:6%; left:24px; gap:12px; } .hero-main-action a { font-size:.58rem; } .hero-main-action a:first-child { padding:13px 14px; } .hero-collection-note { right:21px; bottom:7%; } .hero-collection-note span { font-size:.48rem; } .hero-collection-note strong { font-size:.65rem; } .hero-collection-note small { font-size:.45rem; } .hero-reflect-code { left:24px; bottom:calc(6% + 61px); max-width:207px; } .hero-reflect-code > span { margin-bottom:4px; font-size:.44rem; } .hero-reflect-code p { gap:1px 7px; font-size:.42rem; } .hero-reflect-code b { font-size:.52rem; } }
       `}</style>
     </section>
   );

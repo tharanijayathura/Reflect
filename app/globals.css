@@ -1,24 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* === REFLECT FASHION — MODERN PALETTE ===
-     1. White: #ffffff
-     2. Deep Navy: #1a1a2e
-     3. Indigo-Violet: #6c63ff
-     4. Soft Lavender: #f0eeff
-     5. Slate Gray: #64748b
-  */
+  /* === REFLECT FASHION — WARM EDITORIAL PALETTE ===
+     Sunflower yellow, ink, soft cream and burnt orange. */
 
   /* Base mapping to 5 core colors */
-  --c-white: #ffffff;
-  --c-navy: #1a1a2e;
-  --c-teal: #6c63ff;
-  --c-light-teal: #f0eeff;
-  --c-slate: #64748b;
+  --c-white: #fffdf7;
+  --c-navy: #171526;
+  --c-teal: #e45b2a;
+  --c-light-teal: #fff0b8;
+  --c-slate: #706b68;
+  --hero-yellow: #ffd84d;
+  --warm-cream: #fff8e5;
 
   /* UI Tokens mapped strictly to the 5 colors above */
-  --bg: var(--c-white);
-  --bg-soft: var(--c-light-teal);
+  --bg: var(--warm-cream);
+  --bg-soft: #fff4cf;
   --bg-card: var(--c-white);
   --bg-elevated: var(--c-light-teal);
   --bg-teal: var(--c-light-teal);
@@ -26,8 +23,8 @@
   --bg-dark: var(--c-navy);
 
   /* Borders mapping */
-  --border: var(--c-light-teal);
-  --border-dark: var(--c-slate);
+  --border: #f2df9a;
+  --border-dark: #a79a72;
 
   /* Text mapping */
   --text-primary: var(--c-navy);
@@ -41,9 +38,9 @@
   --accent-mid: var(--c-teal);
   --accent-dark: var(--c-navy);
   --accent-light: var(--c-teal);
-  --accent-soft: rgba(108, 99, 255, 0.12);
-  --accent-glow: rgba(108, 99, 255, 0.25);
-  --accent-bg: var(--c-light-teal);
+  --accent-soft: rgba(228, 91, 42, 0.12);
+  --accent-glow: rgba(228, 91, 42, 0.24);
+  --accent-bg: #ffe1ce;
 
   /* Navy CTA */
   --navy: var(--c-navy);
@@ -55,10 +52,10 @@
   --warning: var(--c-teal);
 
   /* Shadows using opacity on the navy color */
-  --shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
-  --shadow-card: 0 2px 16px rgba(26, 26, 46, 0.08), 0 0 0 1px rgba(108, 99, 255, 0.06);
-  --shadow-hover: 0 8px 32px rgba(108, 99, 255, 0.18), 0 0 0 1px rgba(108, 99, 255, 0.15);
-  --shadow-glow: 0 0 30px rgba(108, 99, 255, 0.2);
+  --shadow-sm: 0 1px 4px rgba(52, 38, 9, 0.08);
+  --shadow-card: 0 4px 18px rgba(52, 38, 9, 0.09), 0 0 0 1px rgba(228, 91, 42, 0.06);
+  --shadow-hover: 0 10px 32px rgba(228, 91, 42, 0.2), 0 0 0 1px rgba(228, 91, 42, 0.16);
+  --shadow-glow: 0 0 30px rgba(255, 190, 38, 0.28);
 }
 
 * {
@@ -135,17 +132,17 @@ img {
 
 /* ========== UTILITIES ========== */
 .gradient-text {
-  background: linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 60%, var(--c-slate) 100%);
+  background: linear-gradient(135deg, var(--c-navy) 0%, var(--c-teal) 62%, #f0a12c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 253, 247, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  border: 1px solid rgba(228, 91, 42, 0.16);
 }
 
 /* ========== CARD HOVER ========== */
@@ -155,7 +152,7 @@ img {
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(228, 91, 42, 0.32);
 }
 
 /* ========== INPUT FIELD ========== */

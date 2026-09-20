@@ -1,196 +1,96 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useCart } from '@/lib/cart-context';
-import { navLinks } from '@/lib/data';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import { useCart } from '@/lib/cart-context';
+
+const primaryLinks = [
+  { href: '/products?category=men', label: 'Men' },
+  { href: '/products?category=women', label: 'Women' },
+  { href: '/categories', label: 'Collections' },
+  { href: '/products', label: 'New in' },
+];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const { cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const handleEscape = (event: KeyboardEvent) => event.key === 'Escape' && setMenuOpen(false);
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleEscape);
+    };
   }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
-      <header style={{
-        position: 'sticky', top: 0, zIndex: 50,
-        background: scrolled
-          ? 'rgba(238,246,249,0.96)'
-          : 'linear-gradient(180deg, rgba(238,246,249,0.92) 0%, rgba(255,255,255,0.98) 100%)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(108, 99, 255, 0.18)',
-        transition: 'all 0.3s ease',
-        boxShadow: scrolled ? '0 4px 20px rgba(108,99,255,0.08)' : 'none',
-      }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', height: '70px' }}>
-
-          {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <div style={{
-              width: '38px', height: '38px',
-              background: 'linear-gradient(135deg, var(--accent-soft), rgba(108, 99, 255, 0.95))',
-              borderRadius: '10px',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: '900', fontSize: '15px', color: 'var(--c-navy)', letterSpacing: '-0.5px', flexShrink: 0,
-            }}>R</div>
-            <div>
-              <span style={{ fontSize: '1.05rem', fontWeight: '800', letterSpacing: '0.18em', color: 'var(--text-primary)', textTransform: 'uppercase', display: 'block', lineHeight: 1.1 }}>REFLECT</span>
-              <span style={{ fontSize: '0.58rem', fontWeight: '600', letterSpacing: '0.22em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>FASHION</span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '2px' }} className="desktop-nav">
-            {navLinks.map(link => {
-              const active = pathname === link.href;
-              return (
-                <Link key={link.href} href={link.href} style={{
-                  padding: '8px 16px', borderRadius: '100px',
-                  fontSize: '0.875rem', fontWeight: active ? '700' : '500',
-                  color: active ? 'var(--c-navy)' : 'var(--text-secondary)',
-                  background: active ? 'rgba(108,99,255,0.16)' : 'transparent',
-                  border: active ? '1px solid rgba(108,99,255,0.24)' : '1px solid transparent',
-                  transition: 'all 0.2s ease', textDecoration: 'none',
-                }} onClick={() => setMenuOpen(false)}>
-                  {link.label}
-                </Link>
-              );
-            })}
+      <header className="fashion-header">
+        <div className="main-navigation">
+          <nav className="desktop-links" aria-label="Shop categories">
+            {primaryLinks.map((link) => <Link key={link.href} href={link.href} className={pathname === link.href ? 'is-active' : ''}>{link.label}</Link>)}
           </nav>
-
-          {/* Right actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {/* Cart */}
-            <Link href="/cart" style={{
-              display: 'flex', alignItems: 'center', gap: '7px',
-              padding: '8px 16px', borderRadius: '100px',
-              background: cartCount > 0 ? 'rgba(108,99,255,0.18)' : 'rgba(238,246,249,0.9)',
-              border: `1px solid ${cartCount > 0 ? 'rgba(108,99,255,0.3)' : 'rgba(108,99,255,0.14)'}`,
-              color: cartCount > 0 ? 'var(--c-navy)' : 'var(--text-secondary)',
-              fontSize: '0.875rem', fontWeight: '600', textDecoration: 'none', transition: 'all 0.2s ease',
-            }} onClick={() => setMenuOpen(false)}>
-              <span style={{ fontSize: '1rem', display: 'flex', alignItems: 'center' }}><ShoppingCartOutlinedIcon style={{ fontSize: '1.2rem' }} /></span>
-              {cartCount > 0 && (
-                <span style={{
-                  minWidth: '20px', height: '20px',
-                  background: 'var(--accent)', color: '#fff',
-                  borderRadius: '100px', fontSize: '0.7rem', fontWeight: '800',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5px',
-                }}>{cartCount}</span>
-              )}
-            </Link>
-
-            {/* Shop CTA */}
-            <Link href="/products" className="shop-cta" style={{
-              padding: '9px 20px', borderRadius: '100px',
-              background: 'linear-gradient(135deg, rgba(108,99,255,0.9), rgba(108,99,255,0.72))',
-              color: 'var(--c-navy)', fontSize: '0.875rem', fontWeight: '800',
-              textDecoration: 'none', transition: 'all 0.2s ease', whiteSpace: 'nowrap',
-            }} onClick={() => setMenuOpen(false)}>
-              Shop Now
-            </Link>
-
-            {/* Hamburger */}
-            <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn" aria-label="Toggle menu" style={{
-              display: 'none', flexDirection: 'column', gap: '5px', padding: '8px',
-              background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.18)',
-              borderRadius: '10px', cursor: 'pointer',
-            }}>
-              {[0,1,2].map(i => (
-                <span key={i} style={{
-                  display: 'block', width: '20px', height: '2px',
-                  background: 'var(--c-navy)', borderRadius: '2px', transition: 'all 0.3s ease',
-                  transform: menuOpen ? (i === 0 ? 'rotate(45deg) translate(5px,5px)' : i === 2 ? 'rotate(-45deg) translate(5px,-5px)' : 'none') : 'none',
-                  opacity: menuOpen && i === 1 ? 0 : 1,
-                }} />
-              ))}
+          <Link href="/" className="fashion-logo" aria-label="Reflect Fashion home" onClick={closeMenu}>
+            <span>REFLECT</span><small>FASHION</small>
+          </Link>
+          <div className="navigation-tools">
+            <Link href="/account" aria-label="Account"><PersonOutlineRoundedIcon /></Link>
+            <Link href="/wishlist" aria-label="Wishlist"><FavoriteBorderRoundedIcon /></Link>
+            <Link href="/cart" className="bag-link" aria-label={`Shopping bag, ${cartCount} items`}><ShoppingBagOutlinedIcon /><span>Bag</span>{cartCount > 0 && <b>{cartCount}</b>}</Link>
+            <button type="button" className="mobile-menu-button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+              {menuOpen ? <CloseRoundedIcon /> : <MenuRoundedIcon />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Overlay */}
-      {menuOpen && (
-        <div onClick={() => setMenuOpen(false)} style={{
-          position: 'fixed', inset: 0, zIndex: 49,
-          background: 'rgba(108,99,255,0.18)', backdropFilter: 'blur(4px)',
-        }} />
-      )}
-
-      {/* Mobile Drawer */}
-      <div style={{
-        position: 'fixed', top: 0, right: 0, bottom: 0, width: '300px',
-        zIndex: 50,
-        background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(238,246,249,0.98) 100%)',
-        borderLeft: '1px solid rgba(108, 99, 255, 0.18)',
-        padding: '80px 20px 32px',
-        display: 'flex', flexDirection: 'column', gap: '6px',
-        transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
-        transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
-        overflowY: 'auto',
-      }} className="mobile-drawer">
-        <p style={{ fontSize: '0.65rem', fontWeight: '700', letterSpacing: '0.2em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '12px' }}>
-          Navigation
-        </p>
-        {navLinks.map(link => {
-          const active = pathname === link.href;
-          return (
-            <Link key={link.href} href={link.href} style={{
-              display: 'block', padding: '13px 16px', borderRadius: '12px',
-              fontSize: '0.95rem', fontWeight: '600',
-              color: active ? 'var(--c-navy)' : 'var(--text-primary)',
-              background: active ? 'rgba(108,99,255,0.16)' : 'transparent',
-              border: `1px solid ${active ? 'rgba(108,99,255,0.24)' : 'transparent'}`,
-              textDecoration: 'none', transition: 'all 0.2s ease',
-            }}>
-              {link.label}
-            </Link>
-          );
-        })}
-        <div style={{ marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid var(--border)' }}>
-          <Link href="/products" style={{
-            display: 'block', padding: '13px', borderRadius: '12px',
-            background: 'linear-gradient(135deg, rgba(108,99,255,0.9), rgba(108,99,255,0.7))', color: 'var(--c-navy)',
-            fontSize: '0.9rem', fontWeight: '800', textAlign: 'center', textDecoration: 'none',
-          }} onClick={() => setMenuOpen(false)}>
-            Shop All T-Shirts <ArrowForwardIcon style={{ fontSize: '0.9rem', verticalAlign: 'middle' }} />
-          </Link>
-        </div>
-      </div>
+      <div className={`fashion-menu-overlay ${menuOpen ? 'fashion-menu-overlay--open' : ''}`} onClick={closeMenu} />
+      <aside className={`fashion-mobile-menu ${menuOpen ? 'fashion-mobile-menu--open' : ''}`} aria-label="Mobile navigation">
+        <p>Shop the edit</p>
+        {primaryLinks.map((link, index) => <Link key={link.href} href={link.href} onClick={closeMenu}><small>0{index + 1}</small>{link.label}<ArrowForwardRoundedIcon /></Link>)}
+        <Link href="/wishlist" onClick={closeMenu}>My wishlist <ArrowForwardRoundedIcon /></Link>
+        <Link href="/account" onClick={closeMenu}>My account <ArrowForwardRoundedIcon /></Link>
+      </aside>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .desktop-nav { gap: 0 !important; }
-          .desktop-nav a { padding: 8px 12px !important; font-size: 0.83rem !important; }
-        }
-        @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .shop-cta { display: none !important; }
-          .hamburger-btn { display: flex !important; }
-          header > div { padding: 0 16px !important; height: 64px !important; }
-          .mobile-drawer { width: min(92vw, 320px) !important; }
-        }
-        @media (max-width: 480px) {
-          header > div { padding: 0 14px !important; }
-          .shop-cta { display: none !important; }
-        }
-        .desktop-nav a:hover { color: var(--c-navy) !important; background: rgba(108,99,255,0.18) !important; }
+        .fashion-header { position:relative; z-index:50; width:100%; padding:15px 16px; background:var(--hero-yellow); color:var(--c-navy); }
+        .main-navigation { position:relative; width:min(100%,1260px); min-height:70px; margin:0 auto; padding:0 clamp(18px,3vw,42px); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; border:1px solid rgba(21,20,37,.13); border-radius:16px; background:rgba(255,251,235,.94); box-shadow:0 10px 24px rgba(87,59,0,.08); }
+        .desktop-links { display:flex; gap:clamp(16px,2vw,31px); align-items:center; }
+        .desktop-links a { position:relative; padding:7px 0; color:var(--c-navy); font-size:.72rem; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+        .desktop-links a::after { content:''; position:absolute; bottom:1px; left:0; width:100%; height:2px; transform:scaleX(0); transform-origin:left; background:var(--accent); transition:transform .2s ease; }
+        .desktop-links a:hover::after,.desktop-links .is-active::after { transform:scaleX(1); }
+        .fashion-logo { display:flex; flex-direction:column; align-items:center; color:var(--c-navy); text-decoration:none; line-height:1; }
+        .fashion-logo span { font-size:1.55rem; font-weight:950; letter-spacing:.13em; }
+        .fashion-logo small { margin-top:5px; color:var(--accent); font-size:.49rem; font-weight:900; letter-spacing:.38em; }
+        .navigation-tools { justify-self:end; display:flex; align-items:center; gap:13px; }
+        .navigation-tools > a { display:inline-flex; align-items:center; justify-content:center; color:var(--c-navy); text-decoration:none; transition:color .2s ease; }
+        .navigation-tools > a:hover { color:var(--accent); }
+        .navigation-tools svg { font-size:1.17rem; }
+        .bag-link { position:relative; gap:5px; font-size:.7rem; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
+        .bag-link b { min-width:16px; height:16px; display:grid; place-items:center; border-radius:50%; background:var(--accent); color:#fff; font-size:.56rem; }
+        .mobile-menu-button { display:none; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid rgba(26,26,46,.12); border-radius:50%; background:#fff; color:var(--c-navy); cursor:pointer; }
+        .fashion-menu-overlay { position:fixed; inset:0; z-index:55; background:rgba(15,14,35,.35); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+        .fashion-menu-overlay--open { opacity:1; pointer-events:auto; }
+        .fashion-mobile-menu { position:fixed; top:0; right:0; bottom:0; z-index:60; width:min(360px,90vw); padding:98px 28px 28px; display:flex; flex-direction:column; background:#f0eeff; transform:translateX(100%); transition:transform .35s cubic-bezier(.22,1,.36,1); }
+        .fashion-mobile-menu--open { transform:translateX(0); }
+        .fashion-mobile-menu > p { margin-bottom:19px; color:var(--accent); font-size:.67rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+        .fashion-mobile-menu a { display:grid; grid-template-columns:28px 1fr auto; align-items:center; padding:15px 0; border-top:1px solid rgba(26,26,46,.1); color:var(--c-navy); font-size:1.08rem; font-weight:850; text-decoration:none; }
+        .fashion-mobile-menu a small { color:var(--text-muted); font-size:.61rem; letter-spacing:.08em; }
+        .fashion-mobile-menu a svg { font-size:1rem; }
+        @media (max-width:850px) { .desktop-links { display:none; } .main-navigation { grid-template-columns:1fr auto 1fr; min-height:65px; } .mobile-menu-button { display:inline-flex; } }
+        @media (max-width:480px) { .fashion-header { padding:10px; } .main-navigation { padding:0 14px; min-height:60px; border-radius:13px; } .fashion-logo span { font-size:1.23rem; } .fashion-logo small { font-size:.43rem; } .navigation-tools { gap:9px; } .navigation-tools > a:not(.bag-link) { display:none; } .bag-link span { display:none; } }
       `}</style>
     </>
   );
