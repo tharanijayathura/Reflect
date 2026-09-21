@@ -35,24 +35,24 @@ export default function Hero() {
 
       <style>{`
         .yellow-hero { position:relative; min-height:700px; height:calc(100vh - 100px); max-height:910px; overflow:hidden; isolation:isolate; background:var(--hero-yellow); color:#151425; }
-        .hero-wordmark { position:absolute; z-index:-1; top:50%; left:50%; width:100%; transform:translate(-50%,-51%); color:#171526; font-size:clamp(7.2rem,17.8vw,19rem); font-weight:950; letter-spacing:-.105em; line-height:.75; text-align:center; white-space:nowrap; user-select:none; }
+        .hero-wordmark { position:absolute; z-index:-1; top:50%; left:50%; width:100%; transform:translate(-50%,-51%); color:#171526; font-family:"Arial Black", "Helvetica Neue", Arial, sans-serif; font-size:clamp(7.2rem,17.8vw,19rem); font-weight:900; letter-spacing:-.095em; line-height:.75; text-align:center; white-space:nowrap; user-select:none; }
         .hero-model { position:absolute; z-index:1; top:1%; left:50%; width:min(51vw,690px); height:100%; transform:translateX(-43%); pointer-events:none; }
         .hero-model img { object-fit:contain; object-position:center bottom; filter:drop-shadow(17px 21px 18px rgba(62,43,0,.18)); }
         .hero-side-copy { position:absolute; z-index:2; top:18%; left:clamp(24px,8vw,110px); }
-        .hero-kicker { display:block; margin-bottom:13px; font-size:.64rem; font-weight:900; letter-spacing:.21em; text-transform:uppercase; }
-        .hero-side-copy p { margin:0; font-size:clamp(.92rem,1.25vw,1.16rem); font-weight:800; letter-spacing:.17em; line-height:1.42; text-transform:uppercase; }
+        .hero-kicker { display:block; margin-bottom:13px; font-family:"Helvetica Neue", Arial, sans-serif; font-size:.64rem; font-weight:800; letter-spacing:.21em; text-transform:uppercase; }
+        .hero-side-copy p { margin:0; font-family:"Arial Black", "Helvetica Neue", Arial, sans-serif; font-size:clamp(.92rem,1.25vw,1.16rem); font-weight:800; letter-spacing:.14em; line-height:1.42; text-transform:uppercase; }
         .hero-side-copy strong { color:var(--accent); }
         .hero-main-action { position:absolute; z-index:3; bottom:12%; left:clamp(24px,8vw,110px); display:flex; align-items:center; gap:20px; }
-        .hero-main-action a { color:#151425; font-size:.68rem; font-weight:900; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+        .hero-main-action a { color:#151425; font-family:"Helvetica Neue", Arial, sans-serif; font-size:.68rem; font-weight:800; letter-spacing:.1em; text-decoration:none; text-transform:uppercase; }
         .hero-main-action a:first-child { display:flex; align-items:center; gap:11px; padding:15px 20px; background:#171526; color:#fff; transition:background .2s ease,transform .2s ease; }
         .hero-main-action a:first-child:hover { transform:translateY(-2px); background:var(--accent); }
         .hero-main-action a:first-child svg { font-size:.95rem; }
         .hero-main-action a:last-child { position:relative; padding-bottom:5px; }
         .hero-main-action a:last-child::after { content:''; position:absolute; right:0; bottom:0; left:0; height:1px; background:#171526; }
         .hero-collection-note { position:absolute; z-index:2; right:clamp(24px,7vw,100px); bottom:12%; display:flex; flex-direction:column; align-items:flex-start; }
-        .hero-collection-note span { margin-bottom:8px; font-size:.61rem; font-weight:900; letter-spacing:.21em; text-transform:uppercase; }
-        .hero-collection-note strong { font-size:.87rem; font-weight:900; letter-spacing:.17em; line-height:1.45; text-transform:uppercase; }
-        .hero-collection-note small { margin-top:8px; padding-top:7px; border-top:1px solid #171526; font-size:.59rem; font-weight:800; letter-spacing:.19em; }
+        .hero-collection-note span { margin-bottom:8px; font-family:"Helvetica Neue", Arial, sans-serif; font-size:.61rem; font-weight:800; letter-spacing:.21em; text-transform:uppercase; }
+        .hero-collection-note strong { font-family:"Arial Black", "Helvetica Neue", Arial, sans-serif; font-size:.87rem; font-weight:800; letter-spacing:.15em; line-height:1.45; text-transform:uppercase; }
+        .hero-collection-note small { margin-top:8px; padding-top:7px; border-top:1px solid #171526; font-family:"Helvetica Neue", Arial, sans-serif; font-size:.59rem; font-weight:800; letter-spacing:.19em; }
         .hero-reflect-code { position:absolute; z-index:3; left:clamp(24px,8vw,110px); bottom:calc(12% + 72px); max-width:350px; }
         .hero-reflect-code > span { display:block; margin-bottom:7px; color:rgba(21,20,37,.62); font-size:.55rem; font-weight:900; letter-spacing:.19em; text-transform:uppercase; }
         .hero-reflect-code p { display:flex; flex-wrap:wrap; gap:4px 11px; margin:0; color:#272436; font-size:.56rem; font-weight:750; letter-spacing:.05em; line-height:1.5; text-transform:uppercase; }

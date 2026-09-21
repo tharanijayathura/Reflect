@@ -1,50 +1,247 @@
 'use client';
+
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import AssignmentReturnOutlinedIcon from '@mui/icons-material/AssignmentReturnOutlined';
-import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 
 const perks = [
-  { icon: <LocalShippingOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Free Delivery', description: 'Free island-wide shipping on orders over Rs. 3,000', color: '#6c63ff' },
-  { icon: <PaymentsOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Cash on Delivery', description: 'Pay when your order arrives. No card required.', color: '#2d6e87' },
-  { icon: <AssignmentReturnOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Easy Returns', description: '7-day no-hassle return policy on all items.', color: '#3e8da8' },
-  { icon: <AutoAwesomeOutlinedIcon style={{ fontSize: '1.4rem' }} />, title: 'Premium Quality', description: 'Premium cotton fabrics that feel great and last.', color: '#1a1a2e' },
+  {
+    icon: LocalShippingOutlinedIcon,
+    badge: 'Fast',
+    title: 'Free Delivery',
+    description: 'Free shipping on every order over Rs. 3,000, tracked door to door.',
+  },
+  {
+    icon: PaymentsOutlinedIcon,
+    badge: 'Flexible',
+    title: 'Cash on Delivery',
+    description: 'No card, no prepay. Settle up when the courier hands it over.',
+  },
+  {
+    icon: AssignmentReturnOutlinedIcon,
+    badge: 'Hassle-free',
+    title: 'Easy Returns',
+    description: "Didn't work out? Send it back within a week, no questions asked.",
+  },
+  {
+    icon: WorkspacePremiumOutlinedIcon,
+    badge: 'Trusted',
+    title: 'Premium Quality',
+    description: 'Comfort-first cotton, finished to hold its shape wear after wear.',
+  },
 ];
 
 export default function ServicesStrip() {
   return (
-    <section style={{ padding: '72px 0', background: 'var(--bg-soft)' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="services-grid">
-          {perks.map(perk => (
-            <div key={perk.title} className="perk-card" style={{
-              background: '#fff', border: '1px solid var(--border)',
-              borderRadius: '20px', padding: '28px 24px',
-              transition: 'all 0.3s ease', position: 'relative', overflow: 'hidden',
-              boxShadow: 'var(--shadow-sm)',
-            }}>
-              {/* Top color strip */}
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: perk.color, borderRadius: '20px 20px 0 0' }} />
+    <section className="rc-section">
+      <div className="rc-board">
+        <div className="rc-intro">
+          <span className="rc-eyebrow">Reflect Care</span>
+          <h2>Good things, all the way to your door.</h2>
+          <p className="rc-summary">The little details that make shopping with Reflect feel easy.</p>
+        </div>
 
-              <div style={{
-                width: '48px', height: '48px', borderRadius: '14px',
-                background: `${perk.color}14`, border: `1px solid ${perk.color}28`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.4rem', marginBottom: '16px',
-              }}>
-                {perk.icon}
+        <div className="rc-list">
+          {perks.map((perk, index) => {
+            const Icon = perk.icon;
+            return (
+              <div className="rc-service" key={perk.title}>
+                <span className="rc-number">0{index + 1}</span>
+                <span className="rc-icon">
+                  <Icon style={{ fontSize: 26 }} />
+                </span>
+                <div className="rc-body">
+                  <div className="rc-title-row">
+                    <h3>{perk.title}</h3>
+                    <span className="rc-badge">{perk.badge}</span>
+                  </div>
+                  <p>{perk.description}</p>
+                </div>
+                <span className="rc-arrow" aria-hidden="true">&rarr;</span>
               </div>
-              <h3 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '8px' }}>{perk.title}</h3>
-              <p style={{ fontSize: '0.85rem', lineHeight: '1.6', color: 'var(--text-muted)' }}>{perk.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       <style>{`
-        .perk-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover) !important; border-color: rgba(108,99,255,0.25) !important; }
-        @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 640px)  { .services-grid { grid-template-columns: 1fr !important; } }
+        .rc-section {
+          padding: 88px 24px 96px;
+          background: #fff8e5;
+          color: #171526;
+        }
+
+        .rc-board {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: clamp(28px, 5vw, 64px);
+          display: grid;
+          grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.5fr);
+          gap: clamp(36px, 7vw, 112px);
+          background: #8a5a3f;
+          border-radius: 28px;
+          color: #fffdf7;
+          overflow: hidden;
+        }
+
+        .rc-intro {
+          align-self: center;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .rc-eyebrow {
+          display: inline-block;
+          padding: 6px 14px 7px;
+          background: #ffd84d;
+          border: 1.5px solid #ffd84d;
+          border-radius: 3px;
+          transform: rotate(-2.5deg);
+          color: #8a5a3f;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 0.65rem;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          margin-bottom: 24px;
+        }
+
+        .rc-intro h2 {
+          margin: 0;
+          max-width: 390px;
+          font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+          font-weight: 900;
+          font-size: clamp(2rem, 4vw, 3.5rem);
+          letter-spacing: -0.045em;
+          line-height: 1.08;
+          text-transform: uppercase;
+        }
+
+        .rc-summary {
+          max-width: 300px;
+          margin: 22px 0 0;
+          color: rgba(255, 253, 247, 0.68);
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 0.95rem;
+          line-height: 1.55;
+        }
+
+        .rc-list {
+          border-top: 1px solid rgba(255, 253, 247, 0.26);
+        }
+
+        .rc-service {
+          min-height: 112px;
+          display: grid;
+          grid-template-columns: 32px 54px minmax(0, 1fr) 24px;
+          align-items: center;
+          gap: 18px;
+          padding: 20px 0;
+          border-bottom: 1px solid rgba(255, 253, 247, 0.26);
+          transition: padding 0.3s ease, background 0.3s ease;
+        }
+
+        .rc-service:hover {
+          padding-left: 12px;
+          padding-right: 12px;
+          background: rgba(255, 253, 247, 0.06);
+        }
+
+        .rc-number {
+          color: rgba(255, 253, 247, 0.48);
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+        }
+
+        .rc-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 54px;
+          height: 54px;
+          background: #ffd84d;
+          border-radius: 50%;
+          color: #8a5a3f;
+          transition: transform 0.3s ease;
+        }
+
+        .rc-service:hover .rc-icon { transform: rotate(-8deg) scale(1.08); }
+
+        .rc-body {
+          min-width: 0;
+        }
+
+        .rc-title-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        .rc-body h3 {
+          margin: 0;
+          font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+          font-size: 1.05rem;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          line-height: 1.2;
+          text-transform: uppercase;
+        }
+
+        .rc-badge {
+          color: #ffd84d;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 0.62rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+        }
+
+        .rc-body p {
+          margin: 7px 0 0;
+          color: rgba(255, 253, 247, 0.68);
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 0.87rem;
+          line-height: 1.55;
+        }
+
+        .rc-arrow {
+          color: #ffd84d;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          font-size: 1.25rem;
+          font-weight: 800;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .rc-service, .rc-icon { transition: none; }
+        }
+
+        @media (max-width: 760px) {
+          .rc-section { padding: 64px 16px 72px; }
+          .rc-board {
+            grid-template-columns: 1fr;
+            gap: 36px;
+            border-radius: 22px;
+          }
+          .rc-intro h2 { max-width: 520px; }
+        }
+
+        @media (max-width: 480px) {
+          .rc-board { padding: 28px 20px 20px; }
+          .rc-service {
+            grid-template-columns: 26px 46px minmax(0, 1fr);
+            gap: 12px;
+            min-height: 0;
+            padding: 18px 0;
+          }
+          .rc-service:hover { padding-left: 6px; padding-right: 6px; }
+          .rc-icon { width: 46px; height: 46px; }
+          .rc-arrow { display: none; }
+        }
       `}</style>
     </section>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -22,6 +22,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const { cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -33,11 +35,32 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      if (menuOpen || currentScrollY <= 12) {
+        setNavHidden(false);
+      } else if (scrollDelta > 8) {
+        setNavHidden(true);
+      } else if (scrollDelta < -8) {
+        setNavHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [menuOpen]);
+
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
-      <header className="fashion-header">
+      <header className={`fashion-header${navHidden && !menuOpen ? ' fashion-header--hidden' : ''}`}>
         <div className="main-navigation">
           <nav className="desktop-links" aria-label="Shop categories">
             {primaryLinks.map((link) => <Link key={link.href} href={link.href} className={pathname === link.href ? 'is-active' : ''}>{link.label}</Link>)}
@@ -73,7 +96,8 @@ export default function Navbar() {
       </aside>
 
       <style>{`
-        .fashion-header { position:sticky; top:0; z-index:50; width:100%; padding:15px 16px; background:var(--hero-yellow); color:var(--c-navy); }
+        .fashion-header { position:sticky; top:0; z-index:50; width:100%; padding:15px 16px; background:var(--hero-yellow); color:var(--c-navy); transition:transform .3s cubic-bezier(.22,1,.36,1); }
+        .fashion-header--hidden { transform:translateY(-100%); }
         .main-navigation { position:relative; width:min(100%,1260px); min-height:70px; margin:0 auto; padding:0 clamp(18px,3vw,42px); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; border:1px solid rgba(21,20,37,.13); border-radius:16px; background:rgba(255,251,235,.94); box-shadow:0 10px 24px rgba(87,59,0,.08); }
         .desktop-links { display:flex; gap:clamp(16px,2vw,31px); align-items:center; }
         .desktop-links a { position:relative; padding:7px 0; color:var(--c-navy); font-size:.72rem; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }

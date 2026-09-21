@@ -45,19 +45,19 @@ export const categories: Category[] = [
     slug: 'men',
     title: "Men's T-Shirts",
     description: 'Structured fits, refined basics, and easy everyday layers for men.',
-    image: '/images/Tshirts/men/19.jpg',
+    image: '/images/Category2.png',
   },
   {
     slug: 'women',
     title: "Women's T-Shirts",
     description: 'Soft silhouettes, versatile neutrals, and elevated casual styling for women.',
-    image: '/images/Tshirts/women/14.jpg',
+    image: '/images/Category1.png',
   },
   {
     slug: 'unisex',
     title: 'Unisex T-Shirts',
     description: 'Relaxed cuts and versatile essentials designed for everyone.',
-    image: '/images/Tshirts/unisex/10.jpg',
+    image: '/images/Category3.png',
   },
 ];
 

@@ -10,10 +10,10 @@ export default function CategoriesPreview() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
         {/* Header */}
         <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-          <p style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.2em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: '12px' }}>
+          <p style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif', fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.2em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: '12px' }}>
             Collections
           </p>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '900', letterSpacing: '-0.03em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: '"Arial Black", "Helvetica Neue", Arial, sans-serif', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '900', letterSpacing: '-0.045em', color: 'var(--text-primary)', lineHeight: 1.1 }}>
             Shop by Category
           </h2>
         </div>
@@ -41,7 +41,7 @@ export default function CategoriesPreview() {
                 src={cat.image}
                 alt={cat.title}
                 fill
-                style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                style={{ objectFit: 'cover', objectPosition: cat.slug === 'unisex' ? 'center 25%' : 'center 35%', transition: 'transform 0.6s ease' }}
                 className="cat-img"
               />
               {/* Soft overlay using brand navy/teal gradient */}
@@ -62,21 +62,22 @@ export default function CategoriesPreview() {
                   display: 'inline-block',
                   padding: '4px 12px',
                   borderRadius: '100px',
-                  background: 'var(--accent-soft)',
-                  border: '1px solid rgba(108, 99, 255, 0.3)',
+                  background: 'var(--accent)',
+                  border: '1px solid rgba(255, 255, 255, 0.35)',
+                  fontFamily: '"Helvetica Neue", Arial, sans-serif',
                   fontSize: '0.65rem',
-                  fontWeight: '700',
+                  fontWeight: '800',
                   letterSpacing: '0.15em',
-                  color: 'var(--accent-light)',
+                  color: '#fff',
                   textTransform: 'uppercase',
                   marginBottom: '10px',
                 }}>
                   {cat.slug}
                 </span>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#fff', marginBottom: '8px', lineHeight: 1.2 }}>
+                <h3 style={{ fontFamily: '"Arial Black", "Helvetica Neue", Arial, sans-serif', fontSize: '1.5rem', fontWeight: '800', letterSpacing: '-0.035em', color: '#fff', marginBottom: '8px', lineHeight: 1.2 }}>
                   {cat.title}
                 </h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.8)', marginBottom: '16px', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.8)', marginBottom: '16px', lineHeight: 1.5 }}>
                   {cat.description}
                 </p>
                 <div style={{
@@ -87,8 +88,9 @@ export default function CategoriesPreview() {
                   borderRadius: '100px',
                   background: 'rgba(255, 255, 255, 0.15)',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
+                  fontFamily: '"Helvetica Neue", Arial, sans-serif',
                   fontSize: '0.8rem',
-                  fontWeight: '700',
+                  fontWeight: '800',
                   color: '#fff',
                   backdropFilter: 'blur(10px)',
                   transition: 'background 0.2s',
