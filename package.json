@@ -1,30 +1,37 @@
 {
-  "name": "reflect-fashion",
-  "version": "0.1.0",
+  "name": "reflect-fashion-monorepo",
+  "version": "1.0.0",
   "private": true,
+  "description": "Reflect Fashion — Modern PERN Stack (PostgreSQL, Express, React/Next.js, Node.js) E-commerce Application",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "npm run dev --workspace=client",
+    "dev:all": "npm run dev --workspace=server & npm run dev --workspace=client",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "build": "npm run build --workspace=client",
+    "build:client": "npm run build --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "start": "npm run start --workspace=client",
+    "start:client": "npm run start --workspace=client",
+    "start:server": "npm run start --workspace=server",
+    "lint": "npm run lint --workspace=client",
+    "db:migrate": "npm run db:migrate --workspace=server",
+    "db:seed": "npm run db:seed --workspace=server"
   },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^9.2.0",
-    "@mui/material": "^9.2.0",
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+  "keywords": [
+    "pern-stack",
+    "nextjs",
+    "react",
+    "express",
+    "postgresql",
+    "ecommerce",
+    "fashion",
+    "typescript"
+  ],
+  "author": "Reflect Fashion Team",
+  "license": "ISC"
 }
