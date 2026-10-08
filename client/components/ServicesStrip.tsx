@@ -106,28 +106,26 @@ export default function ServicesStrip() {
                   </div>
                 </div>
 
-                {/* Visual Block with User-Provided t01-t04 Graphic Image */}
+                {/* Visual Block: Image fills rectangle + Giant White Number with Black Border inside */}
                 <div className="process-visual">
                   <div className="visual-card">
-                    {/* User-Provided Step Graphic Image */}
-                    <div className="visual-img-container">
-                      <Image
-                        src={step.image}
-                        alt={`Reflect Step ${step.number} - ${step.title}`}
-                        width={420}
-                        height={260}
-                        className="visual-graphic-img"
-                        priority={index < 2}
-                      />
-                    </div>
-
-                    {/* Subtle Ambient Glow */}
-                    <div
-                      className="visual-ambient-glow"
-                      style={{
-                        background: `radial-gradient(circle, ${step.accent}20 0%, rgba(255,255,255,0) 70%)`,
-                      }}
+                    {/* Background image filling the entire rectangle */}
+                    <Image
+                      src={step.image}
+                      alt={`Reflect Step ${step.number} - ${step.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 460px"
+                      className="visual-bg-image"
+                      priority={index < 2}
                     />
+
+                    {/* Subtle Overlay to make the white text pop */}
+                    <div className="visual-overlay" />
+
+                    {/* Giant White Number with Crisp Black Border inside the image */}
+                    <div className="number-inside-image">
+                      {step.number}
+                    </div>
 
                     {/* Corner Accent Badge */}
                     <div className="visual-corner-badge">
@@ -309,53 +307,61 @@ export default function ServicesStrip() {
         .visual-card {
           position: relative;
           width: 100%;
-          max-width: 440px;
-          height: 230px;
+          max-width: 460px;
+          height: 240px;
           border-radius: 22px;
-          background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-          border: 1px solid rgba(108, 99, 255, 0.12);
-          box-shadow: 0 14px 30px rgba(26, 26, 46, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+          overflow: hidden;
+          box-shadow: 0 16px 36px rgba(26, 26, 46, 0.08);
+          border: 1.5px solid rgba(26, 26, 46, 0.08);
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow: hidden;
-          padding: 18px;
+          background: #0f172a;
           transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
 
         .visual-card:hover {
           transform: translateY(-5px);
-          box-shadow: 0 22px 45px rgba(108, 99, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
-          border-color: rgba(108, 99, 255, 0.3);
+          box-shadow: 0 24px 50px rgba(108, 99, 255, 0.18);
+          border-color: rgba(108, 99, 255, 0.4);
         }
 
-        .visual-img-container {
+        .visual-bg-image {
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.6s ease;
+        }
+
+        .visual-card:hover .visual-bg-image {
+          transform: scale(1.08);
+        }
+
+        .visual-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.1) 100%);
+          z-index: 1;
+        }
+
+        /* Giant White Number with Black Stroke inside Image */
+        .number-inside-image {
           position: relative;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           z-index: 2;
-        }
-
-        .visual-graphic-img {
-          object-fit: contain;
-          max-height: 190px;
-          width: auto;
-          height: auto;
+          font-size: clamp(6.5rem, 11vw, 9.5rem);
+          font-weight: 950;
+          font-family: 'Inter', -apple-system, sans-serif;
+          color: #ffffff;
+          -webkit-text-stroke: 3.5px #000000;
+          paint-order: stroke fill;
+          text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+          line-height: 1;
+          letter-spacing: -0.05em;
+          user-select: none;
           transition: transform 0.4s ease;
         }
 
-        .visual-card:hover .visual-graphic-img {
-          transform: scale(1.05);
-        }
-
-        .visual-ambient-glow {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          pointer-events: none;
+        .visual-card:hover .number-inside-image {
+          transform: scale(1.08);
         }
 
         .visual-corner-badge {
@@ -367,14 +373,14 @@ export default function ServicesStrip() {
           gap: 5px;
           padding: 4px 12px;
           border-radius: 100px;
-          background: rgba(255, 255, 255, 0.92);
+          background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(8px);
           border: 1px solid rgba(226, 232, 240, 0.9);
           font-size: 0.72rem;
           font-weight: 700;
           color: #1a1a2e;
           z-index: 3;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive Breakpoints */
@@ -390,11 +396,12 @@ export default function ServicesStrip() {
 
           .visual-card {
             max-width: 100%;
-            height: 200px;
+            height: 210px;
           }
 
-          .visual-graphic-img {
-            max-height: 160px;
+          .number-inside-image {
+            font-size: 6.5rem;
+            -webkit-text-stroke: 3px #000000;
           }
 
           .process-timeline {
@@ -417,11 +424,12 @@ export default function ServicesStrip() {
 
           .visual-card {
             height: 180px;
-            border-radius: 16px;
+            border-radius: 18px;
           }
 
-          .visual-graphic-img {
-            max-height: 140px;
+          .number-inside-image {
+            font-size: 5.2rem;
+            -webkit-text-stroke: 2.5px #000000;
           }
         }
       `}</style>
